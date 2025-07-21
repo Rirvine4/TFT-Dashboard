@@ -213,11 +213,11 @@ def get_item_icon_url(item_name):
 
 def display_item_with_icon(item_name, stats):
     """Display item with icon and stats"""
-    col1, col2 = st.columns([1, 4])
+    col1, col2 = st.columns([1, 3])
     
     with col1:
         try:
-            st.image(get_item_icon_url(item_name), width=40)
+            st.image(get_item_icon_url(item_name), width=64)
         except:
             # Fallback if image doesn't load
             st.markdown("⚔️")
