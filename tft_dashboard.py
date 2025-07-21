@@ -268,12 +268,18 @@ with tab1:
         
         if not best_performers.empty:
             for item, stats in best_performers.iterrows():
-                col1, col2, col3, col4 = st.columns(4)
-                col1.metric(f"**{item}**", f"{stats['games']} games")
-                col2.metric("Avg Place", f"{stats['avg_placement']:.2f}")
-                col3.metric("Win Rate", f"{stats['win_rate']:.1f}%")
-                col4.metric("Top 4 Rate", f"{stats['top4_rate']:.1f}%")
-                st.markdown("---")
+                with st.container():
+                    col1, col2, col3, col4 = st.columns([3, 1, 1, 1])
+                    with col1:
+                        st.markdown(f"**{item}**")
+                        st.caption(f"{stats['games']} games")
+                    with col2:
+                        st.metric("Place", f"{stats['avg_placement']:.2f}")
+                    with col3:
+                        st.metric("Win %", f"{stats['win_rate']:.0f}%")
+                    with col4:
+                        st.metric("Top 4", f"{stats['top4_rate']:.0f}%")
+                    st.markdown("---")
 
 with tab2:
     st.markdown("""
@@ -291,12 +297,18 @@ with tab2:
         
         if not problem_items.empty:
             for item, stats in problem_items.iterrows():
-                col1, col2, col3, col4 = st.columns(4)
-                col1.metric(f"**{item}**", f"{stats['games']} games")
-                col2.metric("Avg Place", f"{stats['avg_placement']:.2f}")
-                col3.metric("Win Rate", f"{stats['win_rate']:.1f}%")
-                col4.metric("Top 4 Rate", f"{stats['top4_rate']:.1f}%")
-                st.markdown("---")
+                with st.container():
+                    col1, col2, col3, col4 = st.columns([3, 1, 1, 1])
+                    with col1:
+                        st.markdown(f"**{item}**")
+                        st.caption(f"{stats['games']} games")
+                    with col2:
+                        st.metric("Place", f"{stats['avg_placement']:.2f}")
+                    with col3:
+                        st.metric("Win %", f"{stats['win_rate']:.0f}%")
+                    with col4:
+                        st.metric("Top 4", f"{stats['top4_rate']:.0f}%")
+                    st.markdown("---")
 
 with tab3:
     st.markdown("Items you use most frequently, regardless of performance:")
@@ -305,12 +317,18 @@ with tab3:
         most_used_items = item_performance_filtered.nlargest(10, 'games')
         
         for item, stats in most_used_items.iterrows():
-            col1, col2, col3, col4 = st.columns(4)
-            col1.metric(f"**{item}**", f"{stats['games']} games")
-            col2.metric("Avg Place", f"{stats['avg_placement']:.2f}")
-            col3.metric("Win Rate", f"{stats['win_rate']:.1f}%")
-            col4.metric("Top 4 Rate", f"{stats['top4_rate']:.1f}%")
-            st.markdown("---")
+            with st.container():
+                col1, col2, col3, col4 = st.columns([3, 1, 1, 1])
+                with col1:
+                    st.markdown(f"**{item}**")
+                    st.caption(f"{stats['games']} games")
+                with col2:
+                    st.metric("Place", f"{stats['avg_placement']:.2f}")
+                with col3:
+                    st.metric("Win %", f"{stats['win_rate']:.0f}%")
+                with col4:
+                    st.metric("Top 4", f"{stats['top4_rate']:.0f}%")
+                st.markdown("---")
 
 # Level vs Performance Analysis
 st.markdown("---")
