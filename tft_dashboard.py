@@ -226,17 +226,22 @@ def display_item_with_icon(item_name, stats):
         st.markdown(f"**{item_name}**")
         st.caption(f"{stats['games']} games")
         
-        # Stats in a compact row
+        # Stats with clear headers
         col_a, col_b, col_c = st.columns(3)
         with col_a:
-            st.metric("Place", f"{stats['avg_placement']:.2f}", label_visibility="collapsed")
+            st.markdown("**Avg Place**")
+            st.markdown(f"{stats['avg_placement']:.2f}")
         with col_b:
-            st.metric("Top 4", f"{stats['top4_rate']:.0f}%", label_visibility="collapsed")
+            st.markdown("**Top 4 Rate**")
+            st.markdown(f"{stats['top4_rate']:.0f}%")
         with col_c:
+            st.markdown("**Top 2 Rate**")
             if 'placements' in stats:
                 top2_count = sum(1 for p in stats['placements'] if p <= 2)
                 top2_rate = (top2_count / stats['games']) * 100 if stats['games'] > 0 else 0
-                st.metric("Top 2", f"{top2_rate:.0f}%", label_visibility="collapsed")
+                st.markdown(f"{top2_rate:.0f}%")
+            else:
+                st.markdown("0%")
 
 def analyze_item_performance(df):
     """Analyze item performance"""
@@ -548,52 +553,6 @@ with tab3:
                 with col4:
                     st.metric("Top 4", f"{stats['top4_rate']:.0f}%")
                 st.markdown("---")
-
-# Level vs Performance Analysis
-st.markdown("---")
-st.subheader("📊 Level vs Performance Analysis")
-
-# Calculate average placement by level
-level_summary = df_filtered.groupby('level').agg({
-    'placement': 'mean'
-}).round(2)
-level_summary['games'] = df_filtered.groupby('level').size()
-level_summary = level_summary.reset_index()
-
-# Invert the placement values so better performance = taller bars
-level_summary['inverted_placement'] = 9 - level_summary['placement']
-
-# Create bar chart with inverted values
-fig_level = px.bar(
-    level_summary, 
-    x='level', 
-    y='inverted_placement',
-    title="Performance by Final Level Reached",
-    color='placement',
-    color_continuous_scale='RdYlGn_r',
-    text='games'
-)
-
-# Update layout for better readability
-fig_level.update_layout(
-    yaxis=dict(
-        title="Performance Score (Taller = Better)",
-        range=[0, 8]
-    ),
-    xaxis=dict(title="Final Level Reached"),
-    plot_bgcolor='rgba(0,0,0,0)',
-    paper_bgcolor='rgba(0,0,0,0)',
-    showlegend=False
-)
-
-# Add game count labels on bars
-fig_level.update_traces(
-    texttemplate='%{text} games', 
-    textposition='outside',
-    textfont_size=12
-)
-
-st.plotly_chart(fig_level, use_container_width=True)
 
 # Footer
 st.markdown("---")
