@@ -148,43 +148,68 @@ def clean_item_name(item_name):
     return item_name.replace('TFT_Item_', '').replace('TFT4_Item_Ornn', '').replace('TFT14_', '')
 
 def get_item_icon_url(item_name):
-    """Get the icon URL for a TFT item"""
-    # Clean the item name to match Community Dragon naming convention
+    """Get the official Riot Data Dragon icon URL for a TFT item"""
+    # Clean the item name and map to Riot's official item IDs
     clean_name = item_name.replace(' ', '').replace("'", '').replace('-', '').lower()
     
-    # Map common item names to their Community Dragon IDs
-    item_mapping = {
-        'infinityedge': 'infinityedge',
-        'guinsoosrageblade': 'guinsoosrageblade', 
-        'spearofshojin': 'spearofshojin',
-        'warmogsarmor': 'warmogsarmor',
-        'gargoylestoneplate': 'gargoylestoneplate',
-        'thiefsgloves': 'thiefsgloves',
-        'redbuff': 'redbuff',
-        'bluebuff': 'bluebuff',
-        'runaanshurricane': 'runaanshurricane',
-        'jeweledgauntlet': 'jeweledgauntlet',
-        'morellonomicon': 'morellonomicon',
-        'dragonsclaw': 'dragonsclaw',
-        'bramblевest': 'bramblevest',
-        'archangelsstaff': 'archangelsstaff',
-        'hextechgunblade': 'hextechgunblade',
-        'bloodthirster': 'bloodthirster',
-        'lastwhisper': 'lastwhisper',
-        'ionicspark': 'ionicspark',
-        'quicksilver': 'mercurial',
-        'zekesherald': 'zekesherald',
-        'titanresolve': 'titanresolve',
-        'adaptivehelm': 'adaptivehelm',
-        'statikkshiv': 'statikkshiv',
-        'rapidfirecannon': 'rapidfirecannon'
+    # Map item names to official Riot Data Dragon item IDs for TFT Set 14
+    riot_item_mapping = {
+        'infinityedge': 'TFT_Item_InfinityEdge.png',
+        'guinsoosrageblade': 'TFT_Item_GuinsoosRageblade.png',
+        'spearofshojin': 'TFT_Item_SpearOfShojin.png',
+        'warmogsarmor': 'TFT_Item_WarmogsArmor.png',
+        'gargoylestoneplate': 'TFT_Item_GargoyleStoneplate.png',
+        'thiefsgloves': 'TFT_Item_ThiefsGloves.png',
+        'redbuff': 'TFT_Item_RedBuff.png',
+        'bluebuff': 'TFT_Item_BlueBuff.png',
+        'runaanshurricane': 'TFT_Item_RunaansHurricane.png',
+        'jeweledgauntlet': 'TFT_Item_JeweledGauntlet.png',
+        'morellonomicon': 'TFT_Item_Morellonomicon.png',
+        'dragonsclaw': 'TFT_Item_DragonsClaw.png',
+        'bramblevest': 'TFT_Item_BrambleVest.png',
+        'archangelsstaff': 'TFT_Item_ArchangelsStaff.png',
+        'hextechgunblade': 'TFT_Item_HextechGunblade.png',
+        'bloodthirster': 'TFT_Item_Bloodthirster.png',
+        'lastwhisper': 'TFT_Item_LastWhisper.png',
+        'ionicspark': 'TFT_Item_IonicSpark.png',
+        'quicksilver': 'TFT_Item_Quicksilver.png',
+        'zekesherald': 'TFT_Item_ZekesHerald.png',
+        'titansresolve': 'TFT_Item_TitansResolve.png',
+        'adaptivehelm': 'TFT_Item_AdaptiveHelm.png',
+        'statikkshiv': 'TFT_Item_StatikkShiv.png',
+        'rapidfirecannon': 'TFT_Item_RapidFirecannon.png',
+        'giantslayer': 'TFT_Item_GiantSlayer.png',
+        'deathblade': 'TFT_Item_Deathblade.png',
+        'rabadonsdeathcap': 'TFT_Item_RabadonsDeathcap.png',
+        'ludensecho': 'TFT_Item_LudensEcho.png',
+        'sunfirecape': 'TFT_Item_SunfireCape.png',
+        'thornmail': 'TFT_Item_Thornmail.png',
+        'frozenheart': 'TFT_Item_FrozenHeart.png',
+        'spiritvisage': 'TFT_Item_SpiritVisage.png',
+        'bansheesveil': 'TFT_Item_BansheesVeil.png',
+        'handofjustice': 'TFT_Item_HandOfJustice.png',
+        'forceofnature': 'TFT_Item_ForceOfNature.png',
+        'locketoftheironsolari': 'TFT_Item_LocketOfTheIronSolari.png',
+        'redemption': 'TFT_Item_Redemption.png',
+        'crownguard': 'TFT_Item_Crownguard.png',
+        'sterakskage': 'TFT_Item_SteraksGage.png',
+        'edgeofnight': 'TFT_Item_EdgeOfNight.png',
+        'spectralcutlass': 'TFT_Item_SpectralCutlass.png',
+        'unstableconcoction': 'TFT_Item_UnstableConcoction.png',
+        'nightharvester': 'TFT_Item_NightHarvester.png',
+        'leviathan': 'TFT_Item_Leviathan.png',
+        'spectralGauntlet': 'TFT_Item_SpectralGauntlet.png',
+        'powerGauntlet': 'TFT_Item_PowerGauntlet.png',
+        'emptybag': 'TFT_Item_EmptyBag.png',
+        # Add more items as needed
     }
     
-    # Get the mapped name or use the cleaned name
-    icon_name = item_mapping.get(clean_name, clean_name)
+    # Get the official Riot filename
+    riot_filename = riot_item_mapping.get(clean_name, f'TFT_Item_{item_name.replace(" ", "")}.png')
     
-    # Return the Community Dragon URL
-    return f"https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/standard/{icon_name}.tft_set14.png"
+    # Use Riot's official Data Dragon CDN
+    # Latest version for TFT items
+    return f"https://ddragon.leagueoflegends.com/cdn/14.24.1/img/tft-item/{riot_filename}"
 
 def display_item_with_icon(item_name, stats):
     """Display item with icon and stats"""
