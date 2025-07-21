@@ -147,6 +147,72 @@ def clean_item_name(item_name):
     """Convert TFT_Item_ItemName to readable format"""
     return item_name.replace('TFT_Item_', '').replace('TFT4_Item_Ornn', '').replace('TFT14_', '')
 
+def get_item_icon_url(item_name):
+    """Get the icon URL for a TFT item"""
+    # Clean the item name to match Community Dragon naming convention
+    clean_name = item_name.replace(' ', '').replace("'", '').replace('-', '').lower()
+    
+    # Map common item names to their Community Dragon IDs
+    item_mapping = {
+        'infinityedge': 'infinityedge',
+        'guinsoosrageblade': 'guinsoosrageblade', 
+        'spearofshojin': 'spearofshojin',
+        'warmogsarmor': 'warmogsarmor',
+        'gargoylestoneplate': 'gargoylestoneplate',
+        'thiefsgloves': 'thiefsgloves',
+        'redbuff': 'redbuff',
+        'bluebuff': 'bluebuff',
+        'runaanshurricane': 'runaanshurricane',
+        'jeweledgauntlet': 'jeweledgauntlet',
+        'morellonomicon': 'morellonomicon',
+        'dragonsclaw': 'dragonsclaw',
+        'bramblевest': 'bramblevest',
+        'archangelsstaff': 'archangelsstaff',
+        'hextechgunblade': 'hextechgunblade',
+        'bloodthirster': 'bloodthirster',
+        'lastwhisper': 'lastwhisper',
+        'ionicspark': 'ionicspark',
+        'quicksilver': 'mercurial',
+        'zekesherald': 'zekesherald',
+        'titanresolve': 'titanresolve',
+        'adaptivehelm': 'adaptivehelm',
+        'statikkshiv': 'statikkshiv',
+        'rapidfirecannon': 'rapidfirecannon'
+    }
+    
+    # Get the mapped name or use the cleaned name
+    icon_name = item_mapping.get(clean_name, clean_name)
+    
+    # Return the Community Dragon URL
+    return f"https://raw.communitydragon.org/latest/game/assets/maps/particles/tft/item_icons/standard/{icon_name}.tft_set14.png"
+
+def display_item_with_icon(item_name, stats):
+    """Display item with icon and stats"""
+    col1, col2 = st.columns([1, 4])
+    
+    with col1:
+        try:
+            st.image(get_item_icon_url(item_name), width=40)
+        except:
+            # Fallback if image doesn't load
+            st.markdown("⚔️")
+    
+    with col2:
+        st.markdown(f"**{item_name}**")
+        st.caption(f"{stats['games']} games")
+        
+        # Stats in a compact row
+        col_a, col_b, col_c = st.columns(3)
+        with col_a:
+            st.metric("Place", f"{stats['avg_placement']:.2f}", label_visibility="collapsed")
+        with col_b:
+            st.metric("Top 4", f"{stats['top4_rate']:.0f}%", label_visibility="collapsed")
+        with col_c:
+            if 'placements' in stats:
+                top2_count = sum(1 for p in stats['placements'] if p <= 2)
+                top2_rate = (top2_count / stats['games']) * 100 if stats['games'] > 0 else 0
+                st.metric("Top 2", f"{top2_rate:.0f}%", label_visibility="collapsed")
+
 def analyze_item_performance(df):
     """Analyze item performance"""
     item_stats = {}
@@ -416,18 +482,8 @@ with tab1:
         
         if not best_performers.empty:
             for item, stats in best_performers.iterrows():
-                with st.container():
-                    col1, col2, col3, col4 = st.columns([3, 1, 1, 1])
-                    with col1:
-                        st.markdown(f"**{item}**")
-                        st.caption(f"{stats['games']} games")
-                    with col2:
-                        st.metric("Place", f"{stats['avg_placement']:.2f}")
-                    with col3:
-                        st.metric("Top 4", f"{stats['top4_rate']:.0f}%")
-                    with col4:
-                        st.metric("Games", f"{stats['games']}")
-                    st.markdown("---")
+                display_item_with_icon(item, stats)
+                st.markdown("---")
 
 with tab2:
     st.markdown("""
@@ -445,18 +501,8 @@ with tab2:
         
         if not problem_items.empty:
             for item, stats in problem_items.iterrows():
-                with st.container():
-                    col1, col2, col3, col4 = st.columns([3, 1, 1, 1])
-                    with col1:
-                        st.markdown(f"**{item}**")
-                        st.caption(f"{stats['games']} games")
-                    with col2:
-                        st.metric("Place", f"{stats['avg_placement']:.2f}")
-                    with col3:
-                        st.metric("Top 4", f"{stats['top4_rate']:.0f}%")
-                    with col4:
-                        st.metric("Games", f"{stats['games']}")
-                    st.markdown("---")
+                display_item_with_icon(item, stats)
+                st.markdown("---")
 
 with tab3:
     st.markdown("Items you use most frequently, regardless of performance:")
