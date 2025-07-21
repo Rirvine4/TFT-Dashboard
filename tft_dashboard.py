@@ -52,31 +52,67 @@ st.markdown("### Beebo Prime • Level 273 • Advanced Analytics")
 # Sample data (replace with your actual data loading)
 @st.cache_data
 def load_data():
-    # Your actual match data
+    # Your actual match data - ENHANCED with game mode and traits
     matches_data = [
-        {'placement': 6, 'level': 8, 'gold_left': 7, 'damage': 47, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_GuinsoosRageblade']},
-        {'placement': 3, 'level': 7, 'gold_left': 0, 'damage': 122, 'items': ['TFT_Item_SpearOfShojin', 'TFT_Item_Morellonomicon']},
-        {'placement': 7, 'level': 7, 'gold_left': 0, 'damage': 63, 'items': ['TFT_Item_BlueBuff', 'TFT_Item_GuinsoosRageblade']},
-        {'placement': 6, 'level': 7, 'gold_left': 5, 'damage': 89, 'items': ['TFT_Item_GargoyleStoneplate', 'TFT_Item_GuinsoosRageblade']},
-        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 119, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_RedBuff']},
-        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 61, 'items': ['TFT_Item_BrambleVest', 'TFT_Item_SpearOfShojin']},
-        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 60, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_HextechGunblade']},
-        {'placement': 1, 'level': 8, 'gold_left': 15, 'damage': 170, 'items': ['TFT_Item_ThiefsGloves', 'TFT_Item_GuinsoosRageblade']},
-        {'placement': 7, 'level': 7, 'gold_left': 4, 'damage': 29, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_ArchangelsStaff']},
-        {'placement': 1, 'level': 8, 'gold_left': 2, 'damage': 141, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_GargoyleStoneplate']},
-        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 80, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_Bloodthirster']},
-        {'placement': 7, 'level': 7, 'gold_left': 1, 'damage': 0, 'items': ['TFT_Item_ArchangelsStaff', 'TFT_Item_GuinsoosRageblade']},
-        {'placement': 2, 'level': 8, 'gold_left': 10, 'damage': 177, 'items': ['TFT_Item_Morellonomicon', 'TFT_Item_ThiefsGloves']},
-        {'placement': 6, 'level': 8, 'gold_left': 6, 'damage': 80, 'items': ['TFT_Item_BlueBuff', 'TFT_Item_WarmogsArmor']},
-        {'placement': 3, 'level': 9, 'gold_left': 0, 'damage': 112, 'items': ['TFT_Item_DragonsClaw', 'TFT_Item_GargoyleStoneplate']},
-        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 32, 'items': ['TFT_Item_ZekesHerald', 'TFT_Item_InfinityEdge']},
-        {'placement': 6, 'level': 8, 'gold_left': 0, 'damage': 95, 'items': ['TFT_Item_BrambleVest', 'TFT_Item_RunaansHurricane']},
-        {'placement': 3, 'level': 9, 'gold_left': 1, 'damage': 152, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_InfinityEdge']},
-        {'placement': 3, 'level': 8, 'gold_left': 0, 'damage': 137, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_GargoyleStoneplate']},
-        {'placement': 1, 'level': 9, 'gold_left': 7, 'damage': 201, 'items': ['TFT_Item_ThiefsGloves', 'TFT_Item_LastWhisper']},
+        {'placement': 6, 'level': 8, 'gold_left': 7, 'damage': 47, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Vanguard_4', 'BoomBots_2']},
+        {'placement': 3, 'level': 7, 'gold_left': 0, 'damage': 122, 'items': ['TFT_Item_SpearOfShojin', 'TFT_Item_Morellonomicon'], 'game_mode': 'Solo', 'traits': ['Syndicate_5', 'Slayer_3']},
+        {'placement': 7, 'level': 7, 'gold_left': 0, 'damage': 63, 'items': ['TFT_Item_BlueBuff', 'TFT_Item_GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Cypher_5', 'Bastion_2']},
+        {'placement': 6, 'level': 7, 'gold_left': 5, 'damage': 89, 'items': ['TFT_Item_GargoyleStoneplate', 'TFT_Item_GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Vanguard_3', 'Bruiser_2']},
+        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 119, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_RedBuff'], 'game_mode': 'Solo', 'traits': ['Exotech_7', 'Bastion_2']},
+        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 61, 'items': ['TFT_Item_BrambleVest', 'TFT_Item_SpearOfShojin'], 'game_mode': 'Solo', 'traits': ['Nitro_4', 'Dynamo_4']},
+        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 60, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_HextechGunblade'], 'game_mode': 'Solo', 'traits': ['Anima Squad_7', 'Vanguard_4']},
+        {'placement': 1, 'level': 8, 'gold_left': 15, 'damage': 170, 'items': ['TFT_Item_ThiefsGloves', 'TFT_Item_GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['God of the Net_1', 'Anima Squad_7']},
+        {'placement': 7, 'level': 7, 'gold_left': 4, 'damage': 29, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_ArchangelsStaff'], 'game_mode': 'Solo', 'traits': ['Street Demon_6', 'Techie_3']},
+        {'placement': 1, 'level': 8, 'gold_left': 2, 'damage': 141, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['God of the Net_1', 'BoomBots_4']},
+        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 80, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_Bloodthirster'], 'game_mode': 'Solo', 'traits': ['Syndicate_5', 'Vanguard_3']},
+        {'placement': 7, 'level': 7, 'gold_left': 1, 'damage': 0, 'items': ['TFT_Item_ArchangelsStaff', 'TFT_Item_GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Cypher_5', 'Bastion_2']},
+        {'placement': 2, 'level': 8, 'gold_left': 10, 'damage': 177, 'items': ['TFT_Item_Morellonomicon', 'TFT_Item_ThiefsGloves'], 'game_mode': 'Solo', 'traits': ['Exotech_8', 'Bastion_2']},
+        {'placement': 6, 'level': 8, 'gold_left': 6, 'damage': 80, 'items': ['TFT_Item_BlueBuff', 'TFT_Item_WarmogsArmor'], 'game_mode': 'Solo', 'traits': ['Exotech_7', 'Bastion_2']},
+        {'placement': 3, 'level': 9, 'gold_left': 0, 'damage': 112, 'items': ['TFT_Item_DragonsClaw', 'TFT_Item_GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['Anima Squad_7', 'Vanguard_4']},
+        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 32, 'items': ['TFT_Item_ZekesHerald', 'TFT_Item_InfinityEdge'], 'game_mode': 'Solo', 'traits': ['God of the Net_1', 'Cypher_5']},
+        {'placement': 6, 'level': 8, 'gold_left': 0, 'damage': 95, 'items': ['TFT_Item_BrambleVest', 'TFT_Item_RunaansHurricane'], 'game_mode': 'Solo', 'traits': ['Anima Squad_3', 'Exotech_3']},
+        {'placement': 3, 'level': 9, 'gold_left': 1, 'damage': 152, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_InfinityEdge'], 'game_mode': 'Solo', 'traits': ['Soul Killer_1', 'Golden Ox_6']},
+        {'placement': 3, 'level': 8, 'gold_left': 0, 'damage': 137, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['God of the Net_1', 'Street Demon_7']},
+        {'placement': 1, 'level': 9, 'gold_left': 7, 'damage': 201, 'items': ['TFT_Item_ThiefsGloves', 'TFT_Item_LastWhisper'], 'game_mode': 'Double Up', 'traits': ['God of the Net_1', 'Street Demon_7']},
+        # Add a few more Double Up games for comparison
+        {'placement': 2, 'level': 8, 'gold_left': 5, 'damage': 155, 'items': ['TFT_Item_SpearOfShojin', 'TFT_Item_WarmogsArmor'], 'game_mode': 'Double Up', 'traits': ['Bastion_4', 'A.M.P._4']},
+        {'placement': 3, 'level': 9, 'gold_left': 2, 'damage': 180, 'items': ['TFT_Item_ThiefsGloves', 'TFT_Item_InfinityEdge'], 'game_mode': 'Double Up', 'traits': ['Techie_7', 'Cyberboss_4']},
     ]
     
     return pd.DataFrame(matches_data)
+
+def clean_trait_name(trait_name):
+    """Convert trait names to readable format"""
+    return trait_name.replace('_', ' ').replace('TFT14 ', '').title()
+
+def analyze_trait_performance(df):
+    """Analyze performance by main trait"""
+    trait_stats = {}
+    
+    for _, match in df.iterrows():
+        placement = match['placement']
+        # Get the main trait (usually the first one or highest tier)
+        if match['traits']:
+            main_trait = match['traits'][0].split('_')[0]  # Get trait name without tier
+            
+            if main_trait not in trait_stats:
+                trait_stats[main_trait] = {'placements': [], 'games': 0, 'wins': 0, 'top4': 0}
+            
+            trait_stats[main_trait]['placements'].append(placement)
+            trait_stats[main_trait]['games'] += 1
+            if placement == 1:
+                trait_stats[main_trait]['wins'] += 1
+            if placement <= 4:
+                trait_stats[main_trait]['top4'] += 1
+    
+    # Calculate rates
+    for trait, stats in trait_stats.items():
+        if stats['games'] > 0:
+            stats['avg_placement'] = np.mean(stats['placements'])
+            stats['win_rate'] = (stats['wins'] / stats['games']) * 100
+            stats['top4_rate'] = (stats['top4'] / stats['games']) * 100
+    
+    return pd.DataFrame.from_dict(trait_stats, orient='index')
 
 def clean_item_name(item_name):
     """Convert TFT_Item_ItemName to readable format"""
@@ -112,14 +148,27 @@ def analyze_item_performance(df):
 # Load data
 df = load_data()
 item_performance = analyze_item_performance(df)
+trait_performance = analyze_trait_performance(df)
 
 # Sidebar controls
 st.sidebar.header("🎛️ Dashboard Controls")
-games_to_show = st.sidebar.slider("Games to Display", min_value=5, max_value=20, value=20)
+
+# Game mode filter
+game_modes = ['All', 'Solo', 'Double Up']
+selected_mode = st.sidebar.selectbox("Game Mode", game_modes)
+
+games_to_show = st.sidebar.slider("Games to Display", min_value=5, max_value=len(df), value=20)
 min_item_games = st.sidebar.slider("Minimum Games for Item Analysis", min_value=1, max_value=10, value=3)
 
-# Filter data
-df_filtered = df.head(games_to_show)
+# Filter data by game mode
+if selected_mode != 'All':
+    df_filtered = df[df['game_mode'] == selected_mode].head(games_to_show)
+else:
+    df_filtered = df.head(games_to_show)
+
+# Update performance analysis with filtered data
+item_performance = analyze_item_performance(df_filtered)
+trait_performance = analyze_trait_performance(df_filtered)
 item_performance_filtered = item_performance[item_performance['games'] >= min_item_games]
 
 # Key Insights Alert
@@ -130,6 +179,30 @@ st.markdown("""
     Focus on Spear of Shojin instead (3.0 avg placement, 90% top 4)!</p>
 </div>
 """, unsafe_allow_html=True)
+
+# Key Takeaways Section
+st.subheader("🎯 Key Takeaways")
+col1, col2 = st.columns(2)
+
+with col1:
+    st.markdown("""
+    #### ✅ **Strengths**
+    - 65% Top 4 rate is solid for climbing
+    - Good level management (8.0 average)
+    - Strong performance with tank items
+    - Consistent damage output
+    """)
+
+with col2:
+    st.markdown("""
+    #### ⚠️ **Areas to Improve**
+    - Stop forcing Guinsoo's Rageblade
+    - Focus on Spear of Shojin builds
+    - Reduce 6th-8th place games
+    - Better item flexibility
+    """)
+
+st.markdown("---")
 
 # Main metrics
 col1, col2, col3, col4, col5 = st.columns(5)
@@ -349,30 +422,6 @@ fig_scatter = px.scatter(
     hover_data=['damage', 'gold_left']
 )
 st.plotly_chart(fig_scatter, use_container_width=True)
-
-# Summary insights
-st.markdown("---")
-st.subheader("🎯 Key Takeaways")
-
-col1, col2 = st.columns(2)
-
-with col1:
-    st.markdown("""
-    #### ✅ **Strengths**
-    - 65% Top 4 rate is solid for climbing
-    - Good level management (8.0 average)
-    - Strong performance with tank items
-    - Consistent damage output
-    """)
-
-with col2:
-    st.markdown("""
-    #### ⚠️ **Areas to Improve**
-    - Stop forcing Guinsoo's Rageblade
-    - Focus on Spear of Shojin builds
-    - Reduce 6th-8th place games
-    - Better item flexibility
-    """)
 
 # Footer
 st.markdown("---")
