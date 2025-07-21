@@ -460,6 +460,55 @@ with col4:
     avg_damage = df_filtered['damage'].mean()
     st.metric("Avg Damage", f"{avg_damage:.0f}", delta=f"{avg_damage-100:+.0f}")
 
+# Level vs Performance Analysis (Moved here for visibility)
+st.markdown("---")
+st.subheader("📊 Level vs Performance Analysis")
+
+# Calculate average placement by level
+if len(df_filtered) > 0:
+    level_summary = df_filtered.groupby('level').agg({
+        'placement': 'mean'
+    }).round(2)
+    level_summary['games'] = df_filtered.groupby('level').size()
+    level_summary = level_summary.reset_index()
+
+    # Invert the placement values so better performance = taller bars
+    level_summary['inverted_placement'] = 9 - level_summary['placement']
+
+    # Create bar chart with inverted values
+    fig_level = px.bar(
+        level_summary, 
+        x='level', 
+        y='inverted_placement',
+        title="Performance by Final Level Reached",
+        color='placement',
+        color_continuous_scale='RdYlGn_r',
+        text='games'
+    )
+
+    # Update layout for better readability
+    fig_level.update_layout(
+        yaxis=dict(
+            title="Performance Score (Taller = Better)",
+            range=[0, 8]
+        ),
+        xaxis=dict(title="Final Level Reached"),
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        showlegend=False
+    )
+
+    # Add game count labels on bars
+    fig_level.update_traces(
+        texttemplate='%{text} games', 
+        textposition='outside',
+        textfont_size=12
+    )
+
+    st.plotly_chart(fig_level, use_container_width=True)
+else:
+    st.info("No data available for level analysis")
+
 st.markdown("---")
 
 # Performance over time
