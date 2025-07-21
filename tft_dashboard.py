@@ -210,28 +210,19 @@ if not item_performance_filtered.empty:
     col1, col2 = st.columns(2)
     
     with col1:
-        # Best performing items by average placement (sorted so best items are at top)
-        best_items = item_performance_filtered.nsmallest(8, 'avg_placement').sort_values('avg_placement', ascending=False)
+        # Best performing items with progress bars
+        best_items = item_performance_filtered.nsmallest(8, 'avg_placement')
         
-        # Invert the values so lower placement = longer bars
-        inverted_values = 6 - best_items['avg_placement']
+        st.markdown("### 🏆 Item Performance")
         
-        fig_item_perf = px.bar(
-            best_items.reset_index(),
-            x=inverted_values,
-            y='index',
-            orientation='h',
-            title="🏆 Best Items by Average Placement",
-            color=best_items['avg_placement'].values,
-            color_continuous_scale='RdYlGn_r'
-        )
-        fig_item_perf.update_layout(
-            plot_bgcolor='rgba(0,0,0,0)',
-            paper_bgcolor='rgba(0,0,0,0)',
-            yaxis=dict(title="Item"),
-            xaxis=dict(title="Performance (Longer = Better)")
-        )
-        st.plotly_chart(fig_item_perf, use_container_width=True)
+        for item, stats in best_items.iterrows():
+            # Convert placement to progress score (1st place = 100%, 8th place = 0%)
+            score = max(0, (8 - stats['avg_placement']) / 7)  # Scale from 0-1
+            
+            st.markdown(f"**{item}**")
+            st.progress(score)
+            st.caption(f"{stats['avg_placement']:.1f} avg placement • {stats['top4_rate']:.0f}% top 4 • {stats['games']} games")
+            st.markdown("")  # Add spacing
     
     with col2:
         # Most used items
