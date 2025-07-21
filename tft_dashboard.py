@@ -215,7 +215,7 @@ if not item_performance_filtered.empty:
         
         fig_item_perf = px.bar(
             best_items.reset_index(),
-            x='avg_placement',
+            x=5.5 - best_items.reset_index()['avg_placement'],  # Invert the values
             y='index',
             orientation='h',
             title="🏆 Best Items by Average Placement",
@@ -225,7 +225,8 @@ if not item_performance_filtered.empty:
         fig_item_perf.update_layout(
             plot_bgcolor='rgba(0,0,0,0)',
             paper_bgcolor='rgba(0,0,0,0)',
-            yaxis=dict(title="Item")
+            yaxis=dict(title="Item"),
+            xaxis=dict(title="Performance Score (Higher = Better)")
         )
         st.plotly_chart(fig_item_perf, use_container_width=True)
     
