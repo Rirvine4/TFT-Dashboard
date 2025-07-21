@@ -210,8 +210,6 @@ if not item_performance.empty and 'games' in item_performance.columns:
 else:
     item_performance_filtered = pd.DataFrame()  # Empty DataFrame if no valid data
 
-insights = generate_key_insights(df_filtered, item_performance)
-
 # Key Insights Alert
 st.markdown("""
 <div class="highlight-box">
