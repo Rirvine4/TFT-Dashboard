@@ -195,10 +195,22 @@ if selected_mode != 'All':
 else:
     df_filtered = df.head(games_to_show)
 
+# Check if we have enough data
+if len(df_filtered) == 0:
+    st.error(f"No {selected_mode} games found in your data!")
+    st.stop()
+
 # Update performance analysis with filtered data
 item_performance = analyze_item_performance(df_filtered)
 trait_performance = analyze_trait_performance(df_filtered)
-item_performance_filtered = item_performance[item_performance['games'] >= min_item_games]
+
+# Handle case where item_performance might be empty
+if not item_performance.empty and 'games' in item_performance.columns:
+    item_performance_filtered = item_performance[item_performance['games'] >= min_item_games]
+else:
+    item_performance_filtered = pd.DataFrame()  # Empty DataFrame if no valid data
+
+insights = generate_key_insights(df_filtered, item_performance)
 
 # Key Insights Alert
 st.markdown("""
