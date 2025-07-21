@@ -52,31 +52,63 @@ st.markdown("### Beebo Prime • Level 273 • Advanced Analytics")
 # Sample data (replace with your actual data loading)
 @st.cache_data
 def load_data():
-    # Your actual match data - ENHANCED with game mode and traits
+    """Load data from JSON file created by your API script"""
+    try:
+        # Try to load real data from your API script
+        with open('tft_dashboard_data.json', 'r') as f:
+            data = json.load(f)
+        
+        # Convert to DataFrame
+        matches_df = pd.DataFrame(data['matches'])
+        
+        # Add game mode detection (you can enhance this logic)
+        matches_df['game_mode'] = 'Solo'  # Default to Solo, update as needed
+        
+        # Clean up trait names
+        for i, row in matches_df.iterrows():
+            if 'traits' in row and row['traits']:
+                # Convert trait list to main traits
+                main_traits = []
+                for trait in row['traits']:
+                    if '_' in trait:
+                        trait_name = trait.split('_')[0]
+                        main_traits.append(trait_name)
+                matches_df.at[i, 'traits'] = main_traits
+        
+        print(f"✅ Loaded {len(matches_df)} games from API data")
+        return matches_df
+        
+    except FileNotFoundError:
+        print("⚠️ No API data found, using sample data")
+        # Fallback to sample data if no real data available
+        return load_sample_data()
+    except Exception as e:
+        print(f"❌ Error loading data: {e}")
+        return load_sample_data()
+
+def load_sample_data():
+    """Fallback sample data for testing"""
     matches_data = [
-        {'placement': 6, 'level': 8, 'gold_left': 7, 'damage': 47, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Vanguard_4', 'BoomBots_2']},
-        {'placement': 3, 'level': 7, 'gold_left': 0, 'damage': 122, 'items': ['TFT_Item_SpearOfShojin', 'TFT_Item_Morellonomicon'], 'game_mode': 'Solo', 'traits': ['Syndicate_5', 'Slayer_3']},
-        {'placement': 7, 'level': 7, 'gold_left': 0, 'damage': 63, 'items': ['TFT_Item_BlueBuff', 'TFT_Item_GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Cypher_5', 'Bastion_2']},
-        {'placement': 6, 'level': 7, 'gold_left': 5, 'damage': 89, 'items': ['TFT_Item_GargoyleStoneplate', 'TFT_Item_GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Vanguard_3', 'Bruiser_2']},
-        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 119, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_RedBuff'], 'game_mode': 'Solo', 'traits': ['Exotech_7', 'Bastion_2']},
-        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 61, 'items': ['TFT_Item_BrambleVest', 'TFT_Item_SpearOfShojin'], 'game_mode': 'Solo', 'traits': ['Nitro_4', 'Dynamo_4']},
-        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 60, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_HextechGunblade'], 'game_mode': 'Solo', 'traits': ['Anima Squad_7', 'Vanguard_4']},
-        {'placement': 1, 'level': 8, 'gold_left': 15, 'damage': 170, 'items': ['TFT_Item_ThiefsGloves', 'TFT_Item_GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['God of the Net_1', 'Anima Squad_7']},
-        {'placement': 7, 'level': 7, 'gold_left': 4, 'damage': 29, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_ArchangelsStaff'], 'game_mode': 'Solo', 'traits': ['Street Demon_6', 'Techie_3']},
-        {'placement': 1, 'level': 8, 'gold_left': 2, 'damage': 141, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['God of the Net_1', 'BoomBots_4']},
-        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 80, 'items': ['TFT_Item_InfinityEdge', 'TFT_Item_Bloodthirster'], 'game_mode': 'Solo', 'traits': ['Syndicate_5', 'Vanguard_3']},
-        {'placement': 7, 'level': 7, 'gold_left': 1, 'damage': 0, 'items': ['TFT_Item_ArchangelsStaff', 'TFT_Item_GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Cypher_5', 'Bastion_2']},
-        {'placement': 2, 'level': 8, 'gold_left': 10, 'damage': 177, 'items': ['TFT_Item_Morellonomicon', 'TFT_Item_ThiefsGloves'], 'game_mode': 'Solo', 'traits': ['Exotech_8', 'Bastion_2']},
-        {'placement': 6, 'level': 8, 'gold_left': 6, 'damage': 80, 'items': ['TFT_Item_BlueBuff', 'TFT_Item_WarmogsArmor'], 'game_mode': 'Solo', 'traits': ['Exotech_7', 'Bastion_2']},
-        {'placement': 3, 'level': 9, 'gold_left': 0, 'damage': 112, 'items': ['TFT_Item_DragonsClaw', 'TFT_Item_GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['Anima Squad_7', 'Vanguard_4']},
-        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 32, 'items': ['TFT_Item_ZekesHerald', 'TFT_Item_InfinityEdge'], 'game_mode': 'Solo', 'traits': ['God of the Net_1', 'Cypher_5']},
-        {'placement': 6, 'level': 8, 'gold_left': 0, 'damage': 95, 'items': ['TFT_Item_BrambleVest', 'TFT_Item_RunaansHurricane'], 'game_mode': 'Solo', 'traits': ['Anima Squad_3', 'Exotech_3']},
-        {'placement': 3, 'level': 9, 'gold_left': 1, 'damage': 152, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_InfinityEdge'], 'game_mode': 'Solo', 'traits': ['Soul Killer_1', 'Golden Ox_6']},
-        {'placement': 3, 'level': 8, 'gold_left': 0, 'damage': 137, 'items': ['TFT_Item_WarmogsArmor', 'TFT_Item_GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['God of the Net_1', 'Street Demon_7']},
-        {'placement': 1, 'level': 9, 'gold_left': 7, 'damage': 201, 'items': ['TFT_Item_ThiefsGloves', 'TFT_Item_LastWhisper'], 'game_mode': 'Double Up', 'traits': ['God of the Net_1', 'Street Demon_7']},
-        # Add a few more Double Up games for comparison
-        {'placement': 2, 'level': 8, 'gold_left': 5, 'damage': 155, 'items': ['TFT_Item_SpearOfShojin', 'TFT_Item_WarmogsArmor'], 'game_mode': 'Double Up', 'traits': ['Bastion_4', 'A.M.P._4']},
-        {'placement': 3, 'level': 9, 'gold_left': 2, 'damage': 180, 'items': ['TFT_Item_ThiefsGloves', 'TFT_Item_InfinityEdge'], 'game_mode': 'Double Up', 'traits': ['Techie_7', 'Cyberboss_4']},
+        {'placement': 6, 'level': 8, 'gold_left': 7, 'damage': 47, 'items': ['InfinityEdge', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Vanguard', 'BoomBots']},
+        {'placement': 3, 'level': 7, 'gold_left': 0, 'damage': 122, 'items': ['SpearOfShojin', 'Morellonomicon'], 'game_mode': 'Solo', 'traits': ['Syndicate', 'Slayer']},
+        {'placement': 7, 'level': 7, 'gold_left': 0, 'damage': 63, 'items': ['BlueBuff', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Cypher', 'Bastion']},
+        {'placement': 6, 'level': 7, 'gold_left': 5, 'damage': 89, 'items': ['GargoyleStoneplate', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Vanguard', 'Bruiser']},
+        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 119, 'items': ['InfinityEdge', 'RedBuff'], 'game_mode': 'Solo', 'traits': ['Exotech', 'Bastion']},
+        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 61, 'items': ['BrambleVest', 'SpearOfShojin'], 'game_mode': 'Solo', 'traits': ['Nitro', 'Dynamo']},
+        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 60, 'items': ['WarmogsArmor', 'HextechGunblade'], 'game_mode': 'Solo', 'traits': ['AnimaSquad', 'Vanguard']},
+        {'placement': 1, 'level': 8, 'gold_left': 15, 'damage': 170, 'items': ['ThiefsGloves', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['GodoftheNet', 'AnimaSquad']},
+        {'placement': 7, 'level': 7, 'gold_left': 4, 'damage': 29, 'items': ['WarmogsArmor', 'ArchangelsStaff'], 'game_mode': 'Solo', 'traits': ['StreetDemon', 'Techie']},
+        {'placement': 1, 'level': 8, 'gold_left': 2, 'damage': 141, 'items': ['InfinityEdge', 'GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['GodoftheNet', 'BoomBots']},
+        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 80, 'items': ['InfinityEdge', 'Bloodthirster'], 'game_mode': 'Solo', 'traits': ['Syndicate', 'Vanguard']},
+        {'placement': 7, 'level': 7, 'gold_left': 1, 'damage': 0, 'items': ['ArchangelsStaff', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Cypher', 'Bastion']},
+        {'placement': 2, 'level': 8, 'gold_left': 10, 'damage': 177, 'items': ['Morellonomicon', 'ThiefsGloves'], 'game_mode': 'Solo', 'traits': ['Exotech', 'Bastion']},
+        {'placement': 6, 'level': 8, 'gold_left': 6, 'damage': 80, 'items': ['BlueBuff', 'WarmogsArmor'], 'game_mode': 'Solo', 'traits': ['Exotech', 'Bastion']},
+        {'placement': 3, 'level': 9, 'gold_left': 0, 'damage': 112, 'items': ['DragonsClaw', 'GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['AnimaSquad', 'Vanguard']},
+        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 32, 'items': ['ZekesHerald', 'InfinityEdge'], 'game_mode': 'Solo', 'traits': ['GodoftheNet', 'Cypher']},
+        {'placement': 6, 'level': 8, 'gold_left': 0, 'damage': 95, 'items': ['BrambleVest', 'RunaansHurricane'], 'game_mode': 'Solo', 'traits': ['AnimaSquad', 'Exotech']},
+        {'placement': 3, 'level': 9, 'gold_left': 1, 'damage': 152, 'items': ['WarmogsArmor', 'InfinityEdge'], 'game_mode': 'Solo', 'traits': ['SoulKiller', 'GoldenOx']},
+        {'placement': 3, 'level': 8, 'gold_left': 0, 'damage': 137, 'items': ['WarmogsArmor', 'GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['GodoftheNet', 'StreetDemon']},
+        {'placement': 1, 'level': 9, 'gold_left': 7, 'damage': 201, 'items': ['ThiefsGloves', 'LastWhisper'], 'game_mode': 'Double Up', 'traits': ['GodoftheNet', 'StreetDemon']},
     ]
     
     return pd.DataFrame(matches_data)
