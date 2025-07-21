@@ -125,15 +125,13 @@ def analyze_trait_performance(df):
         placement = match['placement']
         # Get the main trait (usually the first one or highest tier)
         if match['traits']:
-            main_trait = match['traits'][0].split('_')[0]  # Get trait name without tier
+            main_trait = match['traits'][0].split('_')[0] if isinstance(match['traits'][0], str) else match['traits'][0]
             
             if main_trait not in trait_stats:
-                trait_stats[main_trait] = {'placements': [], 'games': 0, 'wins': 0, 'top4': 0}
+                trait_stats[main_trait] = {'placements': [], 'games': 0, 'top4': 0}
             
             trait_stats[main_trait]['placements'].append(placement)
             trait_stats[main_trait]['games'] += 1
-            if placement == 1:
-                trait_stats[main_trait]['wins'] += 1
             if placement <= 4:
                 trait_stats[main_trait]['top4'] += 1
     
@@ -141,7 +139,6 @@ def analyze_trait_performance(df):
     for trait, stats in trait_stats.items():
         if stats['games'] > 0:
             stats['avg_placement'] = np.mean(stats['placements'])
-            stats['win_rate'] = (stats['wins'] / stats['games']) * 100
             stats['top4_rate'] = (stats['top4'] / stats['games']) * 100
     
     return pd.DataFrame.from_dict(trait_stats, orient='index')
@@ -189,7 +186,7 @@ st.sidebar.header("🎛️ Dashboard Controls")
 game_modes = ['All', 'Solo', 'Double Up']
 selected_mode = st.sidebar.selectbox("Game Mode", game_modes)
 
-games_to_show = st.sidebar.slider("Games to Display", min_value=5, max_value=len(df), value=20)
+games_to_show = st.sidebar.slider("Games to Display", min_value=5, max_value=len(df), value=min(50, len(df)))
 min_item_games = st.sidebar.slider("Minimum Games for Item Analysis", min_value=1, max_value=10, value=3)
 
 # Filter data by game mode
@@ -212,50 +209,82 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Key Takeaways Section
+# Key Takeaways Section - Dynamic based on actual data
 st.subheader("🎯 Key Takeaways")
 col1, col2 = st.columns(2)
 
+# Calculate actual performance metrics
+avg_placement = df_filtered['placement'].mean()
+top4_rate = (df_filtered['placement'] <= 4).mean() * 100
+top2_rate = (df_filtered['placement'] <= 2).mean() * 100
+avg_level = df_filtered['level'].mean()
+
 with col1:
-    st.markdown("""
-    #### ✅ **Strengths**
-    - 65% Top 4 rate is solid for climbing
-    - Good level management (8.0 average)
-    - Strong performance with tank items
-    - Consistent damage output
-    """)
+    strengths = []
+    if top4_rate >= 65:
+        strengths.append(f"{top4_rate:.0f}% Top 4 rate is solid for climbing")
+    if avg_level >= 8:
+        strengths.append(f"Good level management ({avg_level:.1f} average)")
+    if top2_rate >= 20:
+        strengths.append(f"Strong top 2 rate ({top2_rate:.0f}%)")
+    
+    if not strengths:
+        strengths = ["Building a solid foundation", "Learning from each game", "Tracking performance data"]
+    
+    st.markdown("#### ✅ **Strengths**")
+    for strength in strengths[:4]:
+        st.markdown(f"- {strength}")
 
 with col2:
-    st.markdown("""
-    #### ⚠️ **Areas to Improve**
-    - Stop forcing Guinsoo's Rageblade
-    - Focus on Spear of Shojin builds
-    - Reduce 6th-8th place games
-    - Better item flexibility
-    """)
+    improvements = []
+    
+    # Find worst performing frequent items
+    if not item_performance_filtered.empty:
+        frequent_bad_items = item_performance_filtered[
+            (item_performance_filtered['games'] >= 5) & 
+            (item_performance_filtered['avg_placement'] > 4.2)
+        ]
+        if not frequent_bad_items.empty:
+            worst_item = frequent_bad_items.loc[frequent_bad_items['avg_placement'].idxmax()]
+            improvements.append(f"Reduce {clean_item_name(worst_item.name)} usage")
+    
+    if avg_placement > 4.5:
+        improvements.append("Focus on early game economy")
+    if top4_rate < 60:
+        improvements.append("Work on consistent top 4 finishes")
+    if avg_level < 8:
+        improvements.append("Improve leveling timing")
+    
+    # Check for level 7 struggles
+    level_7_games = df_filtered[df_filtered['level'] == 7]
+    if len(level_7_games) > 3 and level_7_games['placement'].mean() > 5:
+        improvements.append("Push for level 8 more often")
+    
+    if not improvements:
+        improvements = ["Continue current strategy", "Fine-tune positioning", "Master meta comps"]
+    
+    st.markdown("#### ⚠️ **Areas to Improve**")
+    for improvement in improvements[:4]:
+        st.markdown(f"- {improvement}")
 
 st.markdown("---")
 
 # Main metrics
-col1, col2, col3, col4, col5 = st.columns(5)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    win_rate = (df_filtered['placement'] == 1).mean() * 100
-    st.metric("Win Rate", f"{win_rate:.1f}%", delta=f"{win_rate-12:.1f}%")
-
-with col2:
     top4_rate = (df_filtered['placement'] <= 4).mean() * 100
     st.metric("Top 4 Rate", f"{top4_rate:.1f}%", delta=f"{top4_rate-60:.1f}%")
 
-with col3:
+with col2:
     avg_placement = df_filtered['placement'].mean()
     st.metric("Avg Placement", f"{avg_placement:.2f}", delta=f"{4.5-avg_placement:+.2f}")
 
-with col4:
+with col3:
     avg_level = df_filtered['level'].mean()
     st.metric("Avg Level", f"{avg_level:.1f}", delta=f"{avg_level-7.5:+.1f}")
 
-with col5:
+with col4:
     avg_damage = df_filtered['damage'].mean()
     st.metric("Avg Damage", f"{avg_damage:.0f}", delta=f"{avg_damage-100:+.0f}")
 
@@ -385,9 +414,9 @@ with tab1:
                     with col2:
                         st.metric("Place", f"{stats['avg_placement']:.2f}")
                     with col3:
-                        st.metric("Win %", f"{stats['win_rate']:.0f}%")
-                    with col4:
                         st.metric("Top 4", f"{stats['top4_rate']:.0f}%")
+                    with col4:
+                        st.metric("Games", f"{stats['games']}")
                     st.markdown("---")
 
 with tab2:
@@ -414,9 +443,9 @@ with tab2:
                     with col2:
                         st.metric("Place", f"{stats['avg_placement']:.2f}")
                     with col3:
-                        st.metric("Win %", f"{stats['win_rate']:.0f}%")
-                    with col4:
                         st.metric("Top 4", f"{stats['top4_rate']:.0f}%")
+                    with col4:
+                        st.metric("Games", f"{stats['games']}")
                     st.markdown("---")
 
 with tab3:
