@@ -489,12 +489,15 @@ level_summary = df_filtered.groupby('level').agg({
 level_summary['games'] = df_filtered.groupby('level').size()
 level_summary = level_summary.reset_index()
 
-# Create bar chart
+# Invert the placement values so better performance = taller bars
+level_summary['inverted_placement'] = 9 - level_summary['placement']
+
+# Create bar chart with inverted values
 fig_level = px.bar(
     level_summary, 
     x='level', 
-    y='placement',
-    title="Average Placement by Final Level Reached",
+    y='inverted_placement',
+    title="Performance by Final Level Reached",
     color='placement',
     color_continuous_scale='RdYlGn_r',
     text='games'
@@ -503,9 +506,8 @@ fig_level = px.bar(
 # Update layout for better readability
 fig_level.update_layout(
     yaxis=dict(
-        autorange="reversed", 
-        title="Average Placement (Lower = Better)",
-        range=[0.5, 8.5]  # Set Y-axis range to show full placement scale
+        title="Performance Score (Taller = Better)",
+        range=[0, 8]
     ),
     xaxis=dict(title="Final Level Reached"),
     plot_bgcolor='rgba(0,0,0,0)',
