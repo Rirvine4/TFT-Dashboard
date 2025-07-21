@@ -213,13 +213,19 @@ def get_item_icon_url(item_name):
 
 def display_item_with_icon(item_name, stats):
     """Display item with icon and stats"""
+    # Debug output
+    st.write(f"Displaying item: {item_name}")
+    
     col1, col2 = st.columns([1, 3])
     
     with col1:
         try:
-            st.image(get_item_icon_url(item_name), width=64)
-        except:
+            icon_url = get_item_icon_url(item_name)
+            st.write(f"Icon URL: {icon_url}")  # Debug
+            st.image(icon_url, width=64)
+        except Exception as e:
             # Fallback if image doesn't load
+            st.write(f"Icon failed: {e}")  # Debug
             st.markdown("⚔️")
     
     with col2:
@@ -236,7 +242,7 @@ def display_item_with_icon(item_name, stats):
             st.markdown(f"{stats['top4_rate']:.0f}%")
         with col_c:
             st.markdown("**Top 2 Rate**")
-            if 'placements' in stats:
+            if 'placements' in stats and stats['placements']:
                 top2_count = sum(1 for p in stats['placements'] if p <= 2)
                 top2_rate = (top2_count / stats['games']) * 100 if stats['games'] > 0 else 0
                 st.markdown(f"{top2_rate:.0f}%")
@@ -357,15 +363,6 @@ else:
 
 # Generate insights after all functions are defined and data is loaded
 insights = generate_key_insights(df_filtered, item_performance)
-
-# Key Insights Alert
-st.markdown("""
-<div class="highlight-box">
-    <h3>🚨 Key Insight: Stop Forcing Guinsoo's Rageblade!</h3>
-    <p>Your data shows Guinsoo's Rageblade has poor performance (4.38 avg placement, 46% top 4). 
-    Focus on Spear of Shojin instead (3.0 avg placement, 90% top 4)!</p>
-</div>
-""", unsafe_allow_html=True)
 
 # Key Takeaways Section - Dynamic based on actual data
 st.subheader("🎯 Key Takeaways")
