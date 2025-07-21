@@ -61,13 +61,6 @@ def load_data():
         # Convert to DataFrame
         matches_df = pd.DataFrame(data['matches'])
         
-        # Debug: Check if traits exist in real data
-        st.write("DEBUG: Checking trait data in JSON...")
-        if 'traits' in matches_df.columns:
-            st.write(f"DEBUG: Traits column exists, sample: {matches_df['traits'].iloc[0] if len(matches_df) > 0 else 'Empty'}")
-        else:
-            st.write("DEBUG: No 'traits' column found in JSON data!")
-        
         # Add game mode detection (you can enhance this logic)
         matches_df['game_mode'] = 'Solo'  # Default to Solo, update as needed
         
@@ -128,24 +121,21 @@ def analyze_trait_performance(df):
     """Analyze performance by main trait"""
     trait_stats = {}
     
-    # Debug: Check what trait data we have
-    st.write(f"DEBUG Traits: Analyzing {len(df)} games")
-    
     for i, (_, match) in enumerate(df.iterrows()):
         placement = match['placement']
-        
-        # Debug: Show first few trait structures
-        if i < 3:
-            st.write(f"DEBUG: Game {i+1} traits: {match.get('traits', 'NO TRAITS FIELD')}")
         
         # Get the main trait (usually the first one or highest tier)
         if 'traits' in match and match['traits'] and len(match['traits']) > 0:
             # Handle both string and list formats
             if isinstance(match['traits'], list) and len(match['traits']) > 0:
                 first_trait = match['traits'][0]
-                # Extract trait name (remove tier info if present)
-                if isinstance(first_trait, str):
-                    main_trait = first_trait.split('_')[0] if '_' in first_trait else first_trait
+                # Extract trait name correctly: TFT14_Armorclad_2 -> Armorclad
+                if isinstance(first_trait, str) and '_' in first_trait:
+                    parts = first_trait.split('_')
+                    if len(parts) >= 2:
+                        main_trait = parts[1]  # Get the second part (actual trait name)
+                    else:
+                        main_trait = first_trait
                 else:
                     main_trait = str(first_trait)
             else:
@@ -158,9 +148,6 @@ def analyze_trait_performance(df):
             trait_stats[main_trait]['games'] += 1
             if placement <= 4:
                 trait_stats[main_trait]['top4'] += 1
-    
-    # Debug: Show what traits we found
-    st.write(f"DEBUG: Found {len(trait_stats)} unique traits: {list(trait_stats.keys())}")
     
     # Calculate rates
     for trait, stats in trait_stats.items():
