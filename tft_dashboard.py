@@ -270,7 +270,56 @@ def analyze_item_performance(df):
     
     return pd.DataFrame.from_dict(item_stats, orient='index')
 
-# Load data
+# Generate dynamic key insights based on actual data
+def generate_key_insights(df, item_performance):
+    """Generate dynamic insights based on actual performance data"""
+    insights = []
+    
+    if not item_performance.empty:
+        # Find worst performing frequently used item
+        frequent_items = item_performance[item_performance['games'] >= 5]
+        if not frequent_items.empty:
+            worst_item = frequent_items.loc[frequent_items['avg_placement'].idxmax()]
+            worst_name = clean_item_name(worst_item.name)
+            
+            # Find best performing item for comparison
+            best_item = frequent_items.loc[frequent_items['avg_placement'].idxmin()]
+            best_name = clean_item_name(best_item.name)
+            
+            if worst_item['avg_placement'] > 4.2:
+                insights.append({
+                    'type': 'warning',
+                    'title': f'Stop Forcing {worst_name}!',
+                    'message': f'Your data shows {worst_name} has poor performance ({worst_item["avg_placement"]:.2f} avg placement, {worst_item["top4_rate"]:.0f}% top 4). Focus on {best_name} instead ({best_item["avg_placement"]:.2f} avg placement, {best_item["top4_rate"]:.0f}% top 4)!'
+                })
+    
+    # Check level performance
+    if len(df) > 10:
+        avg_placement = df['placement'].mean()
+        top4_rate = (df['placement'] <= 4).mean() * 100
+        
+        if avg_placement <= 3.5:
+            insights.append({
+                'type': 'success',
+                'title': 'Strong Performance!',
+                'message': f'Excellent {avg_placement:.2f} average placement with {top4_rate:.0f}% top 4 rate. Keep up the consistency!'
+            })
+        elif top4_rate >= 70:
+            insights.append({
+                'type': 'success', 
+                'title': 'Great Top 4 Consistency!',
+                'message': f'Strong {top4_rate:.0f}% top 4 rate! Focus on converting more 4ths to wins.'
+            })
+        elif avg_placement > 4.5:
+            insights.append({
+                'type': 'warning',
+                'title': 'Focus on Fundamentals',
+                'message': f'Average placement of {avg_placement:.2f} suggests room for improvement. Focus on economy and positioning.'
+            })
+    
+    return insights
+
+# Load data and generate insights
 df = load_data()
 item_performance = analyze_item_performance(df)
 trait_performance = analyze_trait_performance(df)
@@ -305,6 +354,9 @@ if not item_performance.empty and 'games' in item_performance.columns:
     item_performance_filtered = item_performance[item_performance['games'] >= min_item_games]
 else:
     item_performance_filtered = pd.DataFrame()  # Empty DataFrame if no valid data
+
+# Generate insights after functions are defined
+insights = generate_key_insights(df_filtered, item_performance)
 
 # Key Insights Alert
 st.markdown("""
