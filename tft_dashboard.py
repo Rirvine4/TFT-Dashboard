@@ -411,17 +411,45 @@ with tab3:
 st.markdown("---")
 st.subheader("📊 Level vs Performance Analysis")
 
-fig_scatter = px.scatter(
-    df_filtered, 
+# Calculate average placement by level
+level_summary = df_filtered.groupby('level').agg({
+    'placement': 'mean'
+}).round(2)
+level_summary['games'] = df_filtered.groupby('level').size()
+level_summary = level_summary.reset_index()
+
+# Create bar chart
+fig_level = px.bar(
+    level_summary, 
     x='level', 
     y='placement',
-    size='damage',
+    title="Average Placement by Final Level Reached",
     color='placement',
-    title="Level Reached vs Final Placement",
     color_continuous_scale='RdYlGn_r',
-    hover_data=['damage', 'gold_left']
+    text='games'
 )
-st.plotly_chart(fig_scatter, use_container_width=True)
+
+# Update layout for better readability
+fig_level.update_layout(
+    yaxis=dict(
+        autorange="reversed", 
+        title="Average Placement (Lower = Better)",
+        range=[0.5, 8.5]  # Set Y-axis range to show full placement scale
+    ),
+    xaxis=dict(title="Final Level Reached"),
+    plot_bgcolor='rgba(0,0,0,0)',
+    paper_bgcolor='rgba(0,0,0,0)',
+    showlegend=False
+)
+
+# Add game count labels on bars
+fig_level.update_traces(
+    texttemplate='%{text} games', 
+    textposition='outside',
+    textfont_size=12
+)
+
+st.plotly_chart(fig_level, use_container_width=True)
 
 # Footer
 st.markdown("---")
