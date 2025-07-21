@@ -211,22 +211,25 @@ if not item_performance_filtered.empty:
     
     with col1:
         # Best performing items by average placement (sorted so best items are at top)
-        best_items = item_performance_filtered.nsmallest(8, 'avg_placement').sort_values('avg_placement', ascending=True)
+        best_items = item_performance_filtered.nsmallest(8, 'avg_placement').sort_values('avg_placement', ascending=False)
+        
+        # Invert the values so lower placement = longer bars
+        inverted_values = 6 - best_items['avg_placement']
         
         fig_item_perf = px.bar(
             best_items.reset_index(),
-            x='avg_placement',
+            x=inverted_values,
             y='index',
             orientation='h',
             title="🏆 Best Items by Average Placement",
-            color='avg_placement',
+            color=best_items['avg_placement'].values,
             color_continuous_scale='RdYlGn_r'
         )
         fig_item_perf.update_layout(
             plot_bgcolor='rgba(0,0,0,0)',
             paper_bgcolor='rgba(0,0,0,0)',
             yaxis=dict(title="Item"),
-            xaxis=dict(title="Average Placement")
+            xaxis=dict(title="Performance (Longer = Better)")
         )
         st.plotly_chart(fig_item_perf, use_container_width=True)
     
