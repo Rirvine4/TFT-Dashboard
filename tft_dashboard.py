@@ -403,11 +403,42 @@ with perf_col1:
                         
                         with col:
                             with st.container():
+                                # Try to load icon, fallback to custom emoji for special items
                                 try:
-                                    icon_url = get_item_icon_url(clean_name)
-                                    st.image(icon_url, width=50)
+                                    # Check if this is a special item that needs custom emoji
+                                    special_item_emojis = {
+                                        'TFT5_Item_Gargoyle Stoneplate Radiant': '🌟🛡️',
+                                        'Item_Armorclad Emblem Item': '⚔️🔰', 
+                                        'Varus Cybernetic Item': '🤖🏹',
+                                        'Item_Nitro_Chrome Counter': '🏎️⚡',
+                                        'The Collector': '💀⚔️',
+                                        'Rapid Fire Cannon': '🏹⚡',
+                                        'B F Sword': '⚔️',
+                                        'Chain Vest': '🦺',
+                                        'Titans Resolve': '🛡️💪',
+                                        'Tear Of The Goddess': '💧✨'
+                                    }
+                                    
+                                    if clean_name in [k.replace(' ', '').lower() for k in special_item_emojis.keys()]:
+                                        # Find the original key and use its emoji
+                                        for key, emoji in special_item_emojis.items():
+                                            if clean_name == key.replace(' ', '').lower():
+                                                st.markdown(f'<div style="text-align: center; font-size: 32px; margin: 8px 0;">{emoji}</div>', unsafe_allow_html=True)
+                                                break
+                                    else:
+                                        # Try to load the actual icon
+                                        icon_url = get_item_icon_url(clean_name)
+                                        st.image(icon_url, width=50)
                                 except:
-                                    st.markdown("⚔️")
+                                    # Ultimate fallback - item type emoji
+                                    if any(word in item_name.lower() for word in ['radiant', 'shimmer', 'prismatic']):
+                                        st.markdown(f'<div style="text-align: center; font-size: 32px; margin: 8px 0;">✨⚔️</div>', unsafe_allow_html=True)
+                                    elif 'emblem' in item_name.lower():
+                                        st.markdown(f'<div style="text-align: center; font-size: 32px; margin: 8px 0;">🔰</div>', unsafe_allow_html=True)
+                                    elif 'artifact' in item_name.lower():
+                                        st.markdown(f'<div style="text-align: center; font-size: 32px; margin: 8px 0;">🏺</div>', unsafe_allow_html=True)
+                                    else:
+                                        st.markdown(f'<div style="text-align: center; font-size: 32px; margin: 8px 0;">⚔️</div>', unsafe_allow_html=True)
                                 
                                 st.markdown(f"**{clean_name}**")
                                 
@@ -456,11 +487,42 @@ with perf_col2:
                         
                         with col:
                             with st.container():
+                                # Try to load icon, fallback to custom emoji for special items
                                 try:
-                                    icon_url = get_item_icon_url(clean_name)
-                                    st.image(icon_url, width=50)
+                                    # Check if this is a special item that needs custom emoji
+                                    special_item_emojis = {
+                                        'TFT5_Item_Gargoyle Stoneplate Radiant': '🌟🛡️',
+                                        'Item_Armorclad Emblem Item': '⚔️🔰', 
+                                        'Varus Cybernetic Item': '🤖🏹',
+                                        'Item_Nitro_Chrome Counter': '🏎️⚡',
+                                        'The Collector': '💀⚔️',
+                                        'Rapid Fire Cannon': '🏹⚡',
+                                        'B F Sword': '⚔️',
+                                        'Chain Vest': '🦺',
+                                        'Titans Resolve': '🛡️💪',
+                                        'Tear Of The Goddess': '💧✨'
+                                    }
+                                    
+                                    if clean_name in [k.replace(' ', '').lower() for k in special_item_emojis.keys()]:
+                                        # Find the original key and use its emoji
+                                        for key, emoji in special_item_emojis.items():
+                                            if clean_name == key.replace(' ', '').lower():
+                                                st.markdown(f'<div style="text-align: center; font-size: 32px; margin: 8px 0;">{emoji}</div>', unsafe_allow_html=True)
+                                                break
+                                    else:
+                                        # Try to load the actual icon
+                                        icon_url = get_item_icon_url(clean_name)
+                                        st.image(icon_url, width=50)
                                 except:
-                                    st.markdown("⚔️")
+                                    # Ultimate fallback - item type emoji
+                                    if any(word in item_name.lower() for word in ['radiant', 'shimmer', 'prismatic']):
+                                        st.markdown(f'<div style="text-align: center; font-size: 32px; margin: 8px 0;">✨⚔️</div>', unsafe_allow_html=True)
+                                    elif 'emblem' in item_name.lower():
+                                        st.markdown(f'<div style="text-align: center; font-size: 32px; margin: 8px 0;">🔰</div>', unsafe_allow_html=True)
+                                    elif 'artifact' in item_name.lower():
+                                        st.markdown(f'<div style="text-align: center; font-size: 32px; margin: 8px 0;">🏺</div>', unsafe_allow_html=True)
+                                    else:
+                                        st.markdown(f'<div style="text-align: center; font-size: 32px; margin: 8px 0;">⚔️</div>', unsafe_allow_html=True)
                                 
                                 st.markdown(f"**{clean_name}**")
                                 
