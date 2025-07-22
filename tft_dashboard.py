@@ -178,8 +178,8 @@ def display_item_with_icon(item_name, stats):
             'spatula': '🍴✨'
         }
         
-        # Normalize the item name for comparison
-        normalized_name = clean_name.lower().replace('_', ' ').replace('-', ' ')
+        # Normalize the item name for comparison - USE ORIGINAL ITEM NAME  
+        normalized_name = item_name.lower().replace('_', ' ').replace('-', ' ').strip()
         
         # Check if we have a specific emoji for this item
         if normalized_name in special_item_emojis:
