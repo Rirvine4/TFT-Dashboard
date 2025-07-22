@@ -51,7 +51,14 @@ st.markdown("### Beebo Prime • Level 273 • Advanced Analytics")
 
 def clean_item_name(item_name):
     """Convert TFT_Item_ItemName to readable format"""
-    return item_name.replace('TFT_Item_', '').replace('TFT4_Item_Ornn', '').replace('TFT14_', '')
+    # Remove various prefixes and clean up the name
+    cleaned = item_name.replace('TFT_Item_', '').replace('TFT4_Item_Ornn', '').replace('TFT14_', '')
+    
+    # Add spaces before capital letters for readability
+    import re
+    spaced = re.sub(r'(?<!^)(?=[A-Z])', ' ', cleaned)
+    
+    return spaced
 
 def get_item_icon_url(item_name):
     """Get the official Riot Data Dragon icon URL for a TFT item"""
@@ -119,14 +126,19 @@ def display_item_with_icon(item_name, stats):
     """Display item with icon and stats"""
     col1, col2 = st.columns([1, 3])
     
+    # Clean the item name for display
+    clean_name = clean_item_name(item_name)
+    
     with col1:
         try:
-            st.image(get_item_icon_url(item_name), width=64)
+            icon_url = get_item_icon_url(clean_name)
+            st.image(icon_url, width=64)
         except Exception as e:
+            # Fallback if image doesn't load
             st.markdown("⚔️")
     
     with col2:
-        st.markdown(f"**{item_name}**")
+        st.markdown(f"**{clean_name}**")  # Use clean name for display
         st.caption(f"{stats['games']} games")
         
         # Stats with clear headers
