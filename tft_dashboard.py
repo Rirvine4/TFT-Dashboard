@@ -349,19 +349,27 @@ st.subheader("📊 Performance Analysis")
 
 chart_col1, chart_col2 = st.columns(2)
 
-with chart_col1:
-    # Item performance matrix - CLEAN GRID FORMAT
-    st.markdown("### ⚔️ Item Performance Matrix")
+# Item Performance Matrices
+st.markdown("---")
+st.subheader("⚔️ Item Performance Analysis")
+
+# Create two columns for best vs worst performing items
+perf_col1, perf_col2 = st.columns(2)
+
+with perf_col1:
+    # BEST performing items matrix
+    st.markdown("### 🏆 Top Performing Items")
+    st.markdown('<p style="color: #2ecc71; font-size: 14px;">Items with strong performance - build these more often!</p>', unsafe_allow_html=True)
     
     if not item_performance_filtered.empty and len(item_performance_filtered) > 0:
-        best_items = item_performance_filtered.nsmallest(12, 'avg_placement')
+        best_items = item_performance_filtered.nsmallest(9, 'avg_placement')
         
         if len(best_items) > 0:
             best_items_data = best_items.reset_index()
             
-            # Create grid layout - 3 columns
+            # Create grid layout - 3 columns x 3 rows
             cols_per_row = 3
-            items_to_show = best_items_data.head(12)  # Show top 12 items
+            items_to_show = best_items_data.head(9)
             
             for i in range(0, len(items_to_show), cols_per_row):
                 cols = st.columns(cols_per_row)
@@ -374,42 +382,89 @@ with chart_col1:
                         clean_name = clean_item_name(item_name)
                         
                         with col:
-                            # Item container with border
                             with st.container():
-                                # Icon
                                 try:
                                     icon_url = get_item_icon_url(clean_name)
-                                    st.image(icon_url, width=60)
+                                    st.image(icon_url, width=50)
                                 except:
-                                    st.markdown("⚔️", unsafe_allow_html=True)
+                                    st.markdown("⚔️")
                                 
-                                # Item name (smaller text)
-                                st.markdown(f"**{clean_name}**", unsafe_allow_html=True)
+                                st.markdown(f"**{clean_name}**")
                                 
-                                # Performance metrics
                                 avg_place = item_row['avg_placement']
                                 games = item_row['games']
                                 top4_rate = item_row['top4_rate']
                                 
-                                # Color code based on performance
-                                if avg_place < 3.5:
-                                    color = "#2ecc71"  # Green for good
-                                elif avg_place < 4.5:
-                                    color = "#f39c12"  # Orange for okay
-                                else:
-                                    color = "#e74c3c"  # Red for poor
+                                # Always green for best items
+                                color = "#2ecc71"
                                 
-                                # Main metric - Average Placement
-                                st.markdown(f'<div style="text-align: center; background-color: {color}; padding: 8px; border-radius: 4px; color: white; font-weight: bold; margin: 4px 0;">{avg_place:.2f} avg</div>', unsafe_allow_html=True)
-                                
-                                # Secondary metrics
+                                st.markdown(f'<div style="text-align: center; background-color: {color}; padding: 6px; border-radius: 4px; color: white; font-weight: bold; margin: 4px 0; font-size: 14px;">{avg_place:.2f} avg</div>', unsafe_allow_html=True)
                                 st.caption(f"{games} games • {top4_rate:.0f}% top 4")
-                                
-                                st.markdown("---")
         else:
-            st.info(f"Not enough item data for {selected_mode} games with minimum {min_item_games} usage")
+            st.info("Not enough data for top performing items")
     else:
-        st.info(f"Not enough item data for {selected_mode} games with minimum {min_item_games} usage")
+        st.info("No item performance data available")
+
+with perf_col2:
+    # WORST performing items matrix  
+    st.markdown("### 🚨 Underperforming Items")
+    st.markdown('<p style="color: #e74c3c; font-size: 14px;">Items hurting your climb - consider building less often!</p>', unsafe_allow_html=True)
+    
+    if not item_performance_filtered.empty and len(item_performance_filtered) > 0:
+        # Filter for items with poor performance (avg placement > 4.5 OR low top4 rate)
+        poor_items = item_performance_filtered[
+            (item_performance_filtered['avg_placement'] > 4.5) | 
+            (item_performance_filtered['top4_rate'] < 45)
+        ].nlargest(9, 'avg_placement')  # Get the worst 9
+        
+        if len(poor_items) > 0:
+            poor_items_data = poor_items.reset_index()
+            
+            # Create grid layout - 3 columns x 3 rows
+            cols_per_row = 3
+            items_to_show = poor_items_data.head(9)
+            
+            for i in range(0, len(items_to_show), cols_per_row):
+                cols = st.columns(cols_per_row)
+                
+                for j, col in enumerate(cols):
+                    item_idx = i + j
+                    if item_idx < len(items_to_show):
+                        item_row = items_to_show.iloc[item_idx]
+                        item_name = item_row['index']
+                        clean_name = clean_item_name(item_name)
+                        
+                        with col:
+                            with st.container():
+                                try:
+                                    icon_url = get_item_icon_url(clean_name)
+                                    st.image(icon_url, width=50)
+                                except:
+                                    st.markdown("⚔️")
+                                
+                                st.markdown(f"**{clean_name}**")
+                                
+                                avg_place = item_row['avg_placement']
+                                games = item_row['games']
+                                top4_rate = item_row['top4_rate']
+                                
+                                # Always red for poor items
+                                color = "#e74c3c"
+                                
+                                st.markdown(f'<div style="text-align: center; background-color: {color}; padding: 6px; border-radius: 4px; color: white; font-weight: bold; margin: 4px 0; font-size: 14px;">{avg_place:.2f} avg</div>', unsafe_allow_html=True)
+                                st.caption(f"{games} games • {top4_rate:.0f}% top 4")
+        else:
+            st.info("No significantly underperforming items found!")
+            st.markdown("🎉 All your items are performing reasonably well!")
+    else:
+        st.info("No item performance data available")
+
+# Original trait analysis section
+chart_col1, chart_col2 = st.columns(2)
+
+with chart_col1:
+    # Keep this empty now since we moved item analysis above
+    st.markdown("")
 
 with chart_col2:
     # Trait vs Placement Analysis (FIXED VERSION)
