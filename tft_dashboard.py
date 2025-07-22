@@ -361,7 +361,7 @@ st.subheader("📊 Performance Analysis")
 chart_col1, chart_col2 = st.columns(2)
 
 with chart_col1:
-    # Item performance chart - NOW VERTICAL BARS
+    # Item performance chart - VERTICAL BARS WITH ICONS
     if not item_performance_filtered.empty and len(item_performance_filtered) > 0:
         best_items = item_performance_filtered.nsmallest(8, 'avg_placement')
         
@@ -369,23 +369,43 @@ with chart_col1:
             # Create inverted performance score (same as level analysis)
             best_items_data = best_items.reset_index()
             best_items_data['performance_score'] = 9 - best_items_data['avg_placement']
+            best_items_data['clean_names'] = best_items_data['index'].apply(clean_item_name)
             
             fig_item_perf = px.bar(
                 best_items_data,
-                x='index',
+                x='clean_names',
                 y='performance_score',
                 title="🏆 Best Items by Performance",
                 color='avg_placement',
                 color_continuous_scale='RdYlGn_r',
                 text='games'
             )
+            
+            # Add item icons as images on x-axis
+            icon_urls = [get_item_icon_url(clean_item_name(item)) for item in best_items_data['index']]
+            
             fig_item_perf.update_layout(
                 plot_bgcolor='rgba(0,0,0,0)',
                 paper_bgcolor='rgba(0,0,0,0)',
                 yaxis=dict(title="Performance Score (Taller = Better)"),
-                xaxis=dict(title="Item", tickangle=45),
-                showlegend=False
+                xaxis=dict(
+                    title="Item",
+                    tickmode='array',
+                    tickvals=list(range(len(best_items_data))),
+                    ticktext=[''] * len(best_items_data),  # Remove text labels
+                ),
+                showlegend=False,
+                images=[
+                    dict(
+                        source=url,
+                        xref="x", yref="paper",
+                        x=i, y=-0.15,
+                        sizex=0.8, sizey=0.1,
+                        xanchor="center", yanchor="middle"
+                    ) for i, url in enumerate(icon_urls)
+                ]
             )
+            
             fig_item_perf.update_traces(
                 texttemplate='%{text} games', 
                 textposition='outside',
