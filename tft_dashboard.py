@@ -418,68 +418,110 @@ with chart_col1:
         st.info(f"Not enough item data for {selected_mode} games with minimum {min_item_games} usage")
 
 with chart_col2:
-    # Trait vs Placement Analysis (Simplified with DEBUG)
+    # Trait vs Placement Analysis (with detailed debugging)
     st.markdown("### 🎭 Trait Performance")
     
-    if len(df_filtered) > 0 and 'traits' in df_filtered.columns:
-        # Extract main traits and their placements
-        trait_placements = []
-        for _, match in df_filtered.iterrows():
-            if match['traits'] and len(match['traits']) > 0:
-                # Get first trait and clean the name
-                first_trait = match['traits'][0]
-                if isinstance(first_trait, str) and '_' in first_trait:
-                    parts = first_trait.split('_')
-                    if len(parts) >= 2:
-                        clean_trait = parts[1]  # Get actual trait name
-                        trait_placements.append({
-                            'trait': clean_trait,
-                            'placement': match['placement']
-                        })
+    st.write("🔍 **Debugging Trait Data:**")
+    
+    if len(df_filtered) > 0:
+        st.write(f"- Total games: {len(df_filtered)}")
+        st.write(f"- Columns available: {list(df_filtered.columns)}")
         
-        if trait_placements:
-            trait_df = pd.DataFrame(trait_placements)
+        if 'traits' in df_filtered.columns:
+            st.write("- 'traits' column exists ✅")
             
-            # Calculate average placement by trait (only show traits with 3+ games)
-            trait_summary = trait_df.groupby('trait').agg({
-                'placement': ['mean', 'count']
-            }).round(2)
-            trait_summary.columns = ['avg_placement', 'games']
-            trait_summary = trait_summary[trait_summary['games'] >= 3]
+            # Show first 5 games' trait data
+            st.write("**First 5 games trait data:**")
+            for i, (_, match) in enumerate(df_filtered.head(5).iterrows()):
+                trait_data = match['traits'] if 'traits' in match else 'No traits field'
+                st.write(f"  Game {i+1}: {trait_data} (type: {type(trait_data)})")
             
-            if len(trait_summary) > 0:
-                trait_summary = trait_summary.reset_index()
-                trait_summary['performance_score'] = 9 - trait_summary['avg_placement']
+            # Count non-empty trait data
+            non_empty_traits = 0
+            trait_examples = []
+            
+            for _, match in df_filtered.iterrows():
+                if 'traits' in match and match['traits']:
+                    if isinstance(match['traits'], list) and len(match['traits']) > 0:
+                        non_empty_traits += 1
+                        if len(trait_examples) < 3:  # Store first 3 examples
+                            trait_examples.append(match['traits'])
+                    elif isinstance(match['traits'], str) and match['traits'].strip():
+                        non_empty_traits += 1
+                        if len(trait_examples) < 3:
+                            trait_examples.append(match['traits'])
+            
+            st.write(f"- Games with non-empty traits: {non_empty_traits}/{len(df_filtered)}")
+            st.write(f"- Trait examples: {trait_examples}")
+            
+            # Try to process traits
+            if non_empty_traits > 0:
+                trait_placements = []
+                processing_log = []
                 
-                # Create vertical bar chart
-                fig_trait = px.bar(
-                    trait_summary.nlargest(6, 'performance_score'),
-                    x='trait',
-                    y='performance_score',
-                    title="Best Traits by Performance",
-                    color='avg_placement',
-                    color_continuous_scale='RdYlGn_r',
-                    text='games'
-                )
-                fig_trait.update_layout(
-                    plot_bgcolor='rgba(0,0,0,0)',
-                    paper_bgcolor='rgba(0,0,0,0)',
-                    yaxis=dict(title="Performance Score (Taller = Better)"),
-                    xaxis=dict(title="Main Trait", tickangle=45),
-                    showlegend=False
-                )
-                fig_trait.update_traces(
-                    texttemplate='%{text} games', 
-                    textposition='outside',
-                    textfont_size=10
-                )
-                st.plotly_chart(fig_trait, use_container_width=True)
+                for i, (_, match) in enumerate(df_filtered.iterrows()):
+                    if 'traits' in match and match['traits']:
+                        traits = match['traits']
+                        
+                        if isinstance(traits, list) and len(traits) > 0:
+                            # Process the first trait
+                            first_trait = traits[0]
+                            
+                            # Try different parsing methods
+                            if isinstance(first_trait, str):
+                                if '_' in first_trait:
+                                    parts = first_trait.split('_')
+                                    if len(parts) >= 2:
+                                        clean_trait = parts[1]  # TFT14_Armorclad_2 -> Armorclad
+                                        trait_placements.append({
+                                            'trait': clean_trait,
+                                            'placement': match['placement']
+                                        })
+                                        if len(processing_log) < 5:
+                                            processing_log.append(f"Game {i+1}: {first_trait} -> {clean_trait}")
+                
+                st.write("**Processing examples:**")
+                for log in processing_log:
+                    st.write(f"  {log}")
+                
+                st.write(f"**Total trait-placement pairs found: {len(trait_placements)}**")
+                
+                if len(trait_placements) > 0:
+                    trait_df = pd.DataFrame(trait_placements)
+                    unique_traits = trait_df['trait'].unique()
+                    st.write(f"**Unique traits: {list(unique_traits)}**")
+                    
+                    # Show trait frequency
+                    trait_counts = trait_df['trait'].value_counts()
+                    st.write("**Trait frequency:**")
+                    for trait, count in trait_counts.head(10).items():
+                        st.write(f"  {trait}: {count} games")
+                    
+                    # Try to create the chart
+                    trait_summary = trait_df.groupby('trait').agg({
+                        'placement': ['mean', 'count']
+                    }).round(2)
+                    trait_summary.columns = ['avg_placement', 'games']
+                    traits_with_enough_games = trait_summary[trait_summary['games'] >= 3]
+                    
+                    st.write(f"**Traits with 3+ games: {len(traits_with_enough_games)}**")
+                    
+                    if len(traits_with_enough_games) > 0:
+                        st.write("🎉 **Should be able to create chart!**")
+                        # Create the chart here...
+                    else:
+                        st.info("Need more games with each trait (3+ games) for reliable analysis")
+                else:
+                    st.warning("No trait-placement pairs could be created from the data")
             else:
-                st.info("Need more games with each trait (3+ games) for analysis")
+                st.warning("No games found with valid trait data")
         else:
-            st.info("No valid trait data found in matches")
+            st.error("No 'traits' column found in the data")
     else:
-        st.info("No trait data available for analysis")
+        st.error("No games in filtered data")
+    
+    st.markdown("---")
+    st.write("💡 **This debug info shows exactly what trait data is available and how it's being processed.**")
 
 # Game Mode Comparison (NEW)
 if selected_mode == 'All' and len(df['game_mode'].unique()) > 1:
