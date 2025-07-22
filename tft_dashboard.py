@@ -755,8 +755,10 @@ st.markdown("---")
 st.subheader("📈 Performance Trends")
 
 if len(df_filtered) >= 10:
-    # Create a rolling average of placement
+    # Create a rolling average of placement - FIXED: Reverse order for chronological display
     df_trends = df_filtered.head(20).copy()
+    # Reverse the dataframe so oldest games come first
+    df_trends = df_trends.iloc[::-1].reset_index(drop=True)
     df_trends['game_number'] = range(1, len(df_trends) + 1)
     df_trends['rolling_avg'] = df_trends['placement'].rolling(window=5, min_periods=1).mean()
     
@@ -776,7 +778,7 @@ if len(df_filtered) >= 10:
         plot_bgcolor='rgba(0,0,0,0)',
         paper_bgcolor='rgba(0,0,0,0)',
         yaxis=dict(title="Average Placement (Lower = Better)", autorange="reversed"),
-        xaxis=dict(title="Game Number (Most Recent → Oldest)")
+        xaxis=dict(title="Game Number (Oldest → Most Recent)")
     )
     
     st.plotly_chart(fig_trend, use_container_width=True)
