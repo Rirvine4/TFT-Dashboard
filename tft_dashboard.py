@@ -374,123 +374,69 @@ with col4:
 st.markdown("---")
 
 def generate_key_insight(df_filtered, item_performance_filtered):
-    """Generate dynamic key insight based on worst performing area"""
-    insights = []
+    """Generate dynamic key insight - OPTIMIZED VERSION"""
     
-    # Calculate performance metrics
+    # Quick performance metrics
     avg_placement = df_filtered['placement'].mean()
     top4_rate = (df_filtered['placement'] <= 4).mean() * 100
     avg_level = df_filtered['level'].mean()
     
-    # Check item performance issues
-    if not item_performance_filtered.empty:
-        # Find most used item with worst performance
-        frequent_bad_items = item_performance_filtered[
-            (item_performance_filtered['games'] >= 5) & 
-            (item_performance_filtered['avg_placement'] > 4.5)
-        ]
-        if not frequent_bad_items.empty:
-            worst_item = frequent_bad_items.loc[frequent_bad_items['avg_placement'].idxmax()]
-            insights.append({
-                'priority': worst_item['avg_placement'],
-                'type': 'item',
-                'message': f"Stop building **{clean_item_name(worst_item.name)}** - you average **{worst_item['avg_placement']:.1f} placement** with it ({worst_item['games']} games)",
-                'icon': '🚨',
-                'action': f"Consider alternatives or build it only in optimal situations"
-            })
+    # SIMPLIFIED: Check only the most obvious issues first
     
-    # Check leveling issues
-    level_7_games = df_filtered[df_filtered['level'] == 7]
-    if len(level_7_games) >= 5 and level_7_games['placement'].mean() > 5.5:
-        insights.append({
-            'priority': level_7_games['placement'].mean(),
-            'type': 'leveling',
-            'message': f"You're stuck at **Level 7 too often** - averaging **{level_7_games['placement'].mean():.1f} placement** ({len(level_7_games)} games)",
-            'icon': '📈',
-            'action': f"Focus on economy management to hit Level 8 more consistently"
-        })
+    # 1. Quick item check - only if we have item data
+    if not item_performance_filtered.empty and len(item_performance_filtered) > 0:
+        # Find worst frequently used item (simplified)
+        frequent_items = item_performance_filtered[item_performance_filtered['games'] >= 5]
+        if not frequent_items.empty:
+            worst_item = frequent_items.loc[frequent_items['avg_placement'].idxmax()]
+            if worst_item['avg_placement'] > 4.5:
+                return {
+                    'message': f"Stop building **{clean_item_name(worst_item.name)}** - you average **{worst_item['avg_placement']:.1f} placement** with it",
+                    'action': f"Try building alternative items instead",
+                    'type': 'item'
+                }
     
-    # Check overall placement issues
-    if avg_placement > 5.0:
-        insights.append({
-            'priority': avg_placement,
-            'type': 'placement',
-            'message': f"Your **{avg_placement:.1f} average placement** needs improvement",
-            'icon': '🎯',
-            'action': "Focus on fundamentals: economy, positioning, and meta comps"
-        })
-    elif top4_rate < 50:
-        insights.append({
-            'priority': 8 - (top4_rate / 12.5),  # Convert to placement-like scale
-            'type': 'consistency',
-            'message': f"Your **{top4_rate:.1f}% Top 4 rate** is below climbing threshold (50%)",
-            'icon': '🔄',
-            'action': "Work on consistent play rather than high-risk strategies"
-        })
-    
-    # Check trait performance issues
-    if len(df_filtered) > 0 and 'traits' in df_filtered.columns:
-        trait_placements = []
-        for _, match in df_filtered.iterrows():
-            if match['traits'] and len(match['traits']) > 0:
-                for trait_entry in match['traits']:
-                    if isinstance(trait_entry, str) and trait_entry != 'TFT14':
-                        if '_' in trait_entry:
-                            parts = trait_entry.split('_')
-                            if len(parts) >= 2:
-                                trait_name = parts[1] if parts[0] == 'TFT14' else parts[0]
-                                if trait_name and len(trait_name) > 2:
-                                    trait_placements.append({
-                                        'trait': trait_name,
-                                        'placement': match['placement']
-                                    })
-        
-        if trait_placements:
-            import pandas as pd
-            trait_df = pd.DataFrame(trait_placements)
-            trait_summary = trait_df.groupby('trait').agg({
-                'placement': ['mean', 'count']
-            }).round(2)
-            trait_summary.columns = ['avg_placement', 'games']
-            
-            # Find traits with poor performance (5+ games, >5.0 avg placement)
-            bad_traits = trait_summary[
-                (trait_summary['games'] >= 5) & 
-                (trait_summary['avg_placement'] > 5.0)
-            ]
-            if not bad_traits.empty:
-                worst_trait = bad_traits.loc[bad_traits['avg_placement'].idxmax()]
-                insights.append({
-                    'priority': worst_trait['avg_placement'],
-                    'type': 'trait',
-                    'message': f"**{worst_trait.name}** trait is underperforming - **{worst_trait['avg_placement']:.1f} avg placement** ({int(worst_trait['games'])} games)",
-                    'icon': '🎭',
-                    'action': f"Consider avoiding {worst_trait.name} comps or improve your execution"
-                })
-    
-    # Return the highest priority (worst performing) insight
-    if insights:
-        return max(insights, key=lambda x: x['priority'])
-    else:
-        # Positive message if no major issues found
+    # 2. Quick level check
+    if avg_level < 7.5:
         return {
-            'priority': 0,
-            'type': 'positive',
-            'message': f"You're performing well! **{avg_placement:.1f} avg placement** and **{top4_rate:.1f}% top 4 rate**",
-            'icon': '🎉',
-            'action': "Keep refining your gameplay and stay consistent"
+            'message': f"Your **Level {avg_level:.1f}** average is holding you back",
+            'action': "Focus on economy management to level faster",
+            'type': 'leveling'
         }
+    
+    # 3. Basic placement check
+    if avg_placement > 5.0:
+        return {
+            'message': f"Your **{avg_placement:.1f} average placement** needs improvement",
+            'action': "Focus on fundamentals: positioning and meta comps",
+            'type': 'placement'
+        }
+    
+    # 4. Top 4 rate check
+    if top4_rate < 50:
+        return {
+            'message': f"Your **{top4_rate:.1f}% Top 4 rate** is below climbing threshold",
+            'action': "Work on consistent play over high-risk strategies",
+            'type': 'consistency'
+        }
+    
+    # 5. If everything looks good
+    return {
+        'message': f"Strong performance! **{avg_placement:.1f} avg placement** and **{top4_rate:.1f}% top 4 rate**",
+        'action': "Keep refining your gameplay and stay consistent",
+        'type': 'positive'
+    }
 
-# Generate and display the key insight
+# Generate and display the key insight - MUCH FASTER
 key_insight = generate_key_insight(df_filtered, item_performance_filtered)
 
-# Display the alert with appropriate styling
+# Simplified display
 if key_insight['type'] == 'positive':
     st.success(f"🎉 **KEY INSIGHT:** {key_insight['message']}")
-    st.info(f"💡 **Next Step:** {key_insight['action']}")
+    st.info(f"💡 **Keep It Up:** {key_insight['action']}")
 else:
-    st.error(f"{key_insight['icon']} **KEY INSIGHT:** {key_insight['message']}")
-    st.warning(f"💡 **Action Required:** {key_insight['action']}")
+    st.error(f"🚨 **KEY INSIGHT:** {key_insight['message']}")
+    st.warning(f"💡 **Action:** {key_insight['action']}")
 
 # Add a small explanation
 with st.expander("ℹ️ How Key Insights Work", expanded=False):
