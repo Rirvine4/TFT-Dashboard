@@ -173,17 +173,6 @@ def load_data():
         # Add game mode detection (you can enhance this logic)
         matches_df['game_mode'] = 'Solo'  # Default to Solo, update as needed
         
-        # Clean up trait names
-        for i, row in matches_df.iterrows():
-            if 'traits' in row and row['traits']:
-                # Convert trait list to main traits
-                main_traits = []
-                for trait in row['traits']:
-                    if '_' in trait:
-                        trait_name = trait.split('_')[0]
-                        main_traits.append(trait_name)
-                matches_df.at[i, 'traits'] = main_traits
-        
         print(f"✅ Loaded {len(matches_df)} games from API data")
         return matches_df
         
@@ -198,26 +187,26 @@ def load_data():
 def load_sample_data():
     """Fallback sample data for testing"""
     matches_data = [
-        {'placement': 6, 'level': 8, 'gold_left': 7, 'damage': 47, 'items': ['InfinityEdge', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Vanguard', 'BoomBots']},
-        {'placement': 3, 'level': 7, 'gold_left': 0, 'damage': 122, 'items': ['SpearOfShojin', 'Morellonomicon'], 'game_mode': 'Solo', 'traits': ['Syndicate', 'Slayer']},
-        {'placement': 7, 'level': 7, 'gold_left': 0, 'damage': 63, 'items': ['BlueBuff', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Cypher', 'Bastion']},
-        {'placement': 6, 'level': 7, 'gold_left': 5, 'damage': 89, 'items': ['GargoyleStoneplate', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Vanguard', 'Bruiser']},
-        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 119, 'items': ['InfinityEdge', 'RedBuff'], 'game_mode': 'Solo', 'traits': ['Exotech', 'Bastion']},
-        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 61, 'items': ['BrambleVest', 'SpearOfShojin'], 'game_mode': 'Solo', 'traits': ['Nitro', 'Dynamo']},
-        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 60, 'items': ['WarmogsArmor', 'HextechGunblade'], 'game_mode': 'Solo', 'traits': ['AnimaSquad', 'Vanguard']},
-        {'placement': 1, 'level': 8, 'gold_left': 15, 'damage': 170, 'items': ['ThiefsGloves', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['GodoftheNet', 'AnimaSquad']},
-        {'placement': 7, 'level': 7, 'gold_left': 4, 'damage': 29, 'items': ['WarmogsArmor', 'ArchangelsStaff'], 'game_mode': 'Solo', 'traits': ['StreetDemon', 'Techie']},
-        {'placement': 1, 'level': 8, 'gold_left': 2, 'damage': 141, 'items': ['InfinityEdge', 'GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['GodoftheNet', 'BoomBots']},
-        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 80, 'items': ['InfinityEdge', 'Bloodthirster'], 'game_mode': 'Solo', 'traits': ['Syndicate', 'Vanguard']},
-        {'placement': 7, 'level': 7, 'gold_left': 1, 'damage': 0, 'items': ['ArchangelsStaff', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['Cypher', 'Bastion']},
-        {'placement': 2, 'level': 8, 'gold_left': 10, 'damage': 177, 'items': ['Morellonomicon', 'ThiefsGloves'], 'game_mode': 'Solo', 'traits': ['Exotech', 'Bastion']},
-        {'placement': 6, 'level': 8, 'gold_left': 6, 'damage': 80, 'items': ['BlueBuff', 'WarmogsArmor'], 'game_mode': 'Solo', 'traits': ['Exotech', 'Bastion']},
-        {'placement': 3, 'level': 9, 'gold_left': 0, 'damage': 112, 'items': ['DragonsClaw', 'GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['AnimaSquad', 'Vanguard']},
-        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 32, 'items': ['ZekesHerald', 'InfinityEdge'], 'game_mode': 'Solo', 'traits': ['GodoftheNet', 'Cypher']},
-        {'placement': 6, 'level': 8, 'gold_left': 0, 'damage': 95, 'items': ['BrambleVest', 'RunaansHurricane'], 'game_mode': 'Solo', 'traits': ['AnimaSquad', 'Exotech']},
-        {'placement': 3, 'level': 9, 'gold_left': 1, 'damage': 152, 'items': ['WarmogsArmor', 'InfinityEdge'], 'game_mode': 'Solo', 'traits': ['SoulKiller', 'GoldenOx']},
-        {'placement': 3, 'level': 8, 'gold_left': 0, 'damage': 137, 'items': ['WarmogsArmor', 'GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['GodoftheNet', 'StreetDemon']},
-        {'placement': 1, 'level': 9, 'gold_left': 7, 'damage': 201, 'items': ['ThiefsGloves', 'LastWhisper'], 'game_mode': 'Double Up', 'traits': ['GodoftheNet', 'StreetDemon']},
+        {'placement': 6, 'level': 8, 'gold_left': 7, 'damage': 47, 'items': ['InfinityEdge', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['TFT14_Vanguard_3', 'TFT14_BoomBots_2']},
+        {'placement': 3, 'level': 7, 'gold_left': 0, 'damage': 122, 'items': ['SpearOfShojin', 'Morellonomicon'], 'game_mode': 'Solo', 'traits': ['TFT14_Syndicate_4', 'TFT14_Slayer_2']},
+        {'placement': 7, 'level': 7, 'gold_left': 0, 'damage': 63, 'items': ['BlueBuff', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['TFT14_Cypher_2', 'TFT14_Bastion_3']},
+        {'placement': 6, 'level': 7, 'gold_left': 5, 'damage': 89, 'items': ['GargoyleStoneplate', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['TFT14_Vanguard_2', 'TFT14_Bruiser_3']},
+        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 119, 'items': ['InfinityEdge', 'RedBuff'], 'game_mode': 'Solo', 'traits': ['TFT14_Exotech_4', 'TFT14_Bastion_2']},
+        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 61, 'items': ['BrambleVest', 'SpearOfShojin'], 'game_mode': 'Solo', 'traits': ['TFT14_Nitro_3', 'TFT14_Dynamo_2']},
+        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 60, 'items': ['WarmogsArmor', 'HextechGunblade'], 'game_mode': 'Solo', 'traits': ['TFT14_AnimaSquad_6', 'TFT14_Vanguard_2']},
+        {'placement': 1, 'level': 8, 'gold_left': 15, 'damage': 170, 'items': ['ThiefsGloves', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['TFT14_GodoftheNet_1', 'TFT14_AnimaSquad_4']},
+        {'placement': 7, 'level': 7, 'gold_left': 4, 'damage': 29, 'items': ['WarmogsArmor', 'ArchangelsStaff'], 'game_mode': 'Solo', 'traits': ['TFT14_StreetDemon_2', 'TFT14_Techie_3']},
+        {'placement': 1, 'level': 8, 'gold_left': 2, 'damage': 141, 'items': ['InfinityEdge', 'GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['TFT14_GodoftheNet_1', 'TFT14_BoomBots_4']},
+        {'placement': 4, 'level': 9, 'gold_left': 0, 'damage': 80, 'items': ['InfinityEdge', 'Bloodthirster'], 'game_mode': 'Solo', 'traits': ['TFT14_Syndicate_3', 'TFT14_Vanguard_2']},
+        {'placement': 7, 'level': 7, 'gold_left': 1, 'damage': 0, 'items': ['ArchangelsStaff', 'GuinsoosRageblade'], 'game_mode': 'Solo', 'traits': ['TFT14_Cypher_2', 'TFT14_Bastion_2']},
+        {'placement': 2, 'level': 8, 'gold_left': 10, 'damage': 177, 'items': ['Morellonomicon', 'ThiefsGloves'], 'game_mode': 'Solo', 'traits': ['TFT14_Exotech_4', 'TFT14_Bastion_3']},
+        {'placement': 6, 'level': 8, 'gold_left': 6, 'damage': 80, 'items': ['BlueBuff', 'WarmogsArmor'], 'game_mode': 'Solo', 'traits': ['TFT14_Exotech_2', 'TFT14_Bastion_2']},
+        {'placement': 3, 'level': 9, 'gold_left': 0, 'damage': 112, 'items': ['DragonsClaw', 'GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['TFT14_AnimaSquad_4', 'TFT14_Vanguard_3']},
+        {'placement': 4, 'level': 8, 'gold_left': 1, 'damage': 32, 'items': ['ZekesHerald', 'InfinityEdge'], 'game_mode': 'Solo', 'traits': ['TFT14_GodoftheNet_1', 'TFT14_Cypher_3']},
+        {'placement': 6, 'level': 8, 'gold_left': 0, 'damage': 95, 'items': ['BrambleVest', 'RunaansHurricane'], 'game_mode': 'Solo', 'traits': ['TFT14_AnimaSquad_3', 'TFT14_Exotech_2']},
+        {'placement': 3, 'level': 9, 'gold_left': 1, 'damage': 152, 'items': ['WarmogsArmor', 'InfinityEdge'], 'game_mode': 'Solo', 'traits': ['TFT14_SoulKiller_1', 'TFT14_GoldenOx_2']},
+        {'placement': 3, 'level': 8, 'gold_left': 0, 'damage': 137, 'items': ['WarmogsArmor', 'GargoyleStoneplate'], 'game_mode': 'Solo', 'traits': ['TFT14_GodoftheNet_1', 'TFT14_StreetDemon_3']},
+        {'placement': 1, 'level': 9, 'gold_left': 7, 'damage': 201, 'items': ['ThiefsGloves', 'LastWhisper'], 'game_mode': 'Double Up', 'traits': ['TFT14_GodoftheNet_1', 'TFT14_StreetDemon_2']},
     ]
     
     return pd.DataFrame(matches_data)
@@ -418,110 +407,129 @@ with chart_col1:
         st.info(f"Not enough item data for {selected_mode} games with minimum {min_item_games} usage")
 
 with chart_col2:
-    # Trait vs Placement Analysis (with detailed debugging)
+    # Trait vs Placement Analysis (FIXED VERSION)
     st.markdown("### 🎭 Trait Performance")
     
-    st.write("🔍 **Debugging Trait Data:**")
-    
-    if len(df_filtered) > 0:
-        st.write(f"- Total games: {len(df_filtered)}")
-        st.write(f"- Columns available: {list(df_filtered.columns)}")
+    if len(df_filtered) > 0 and 'traits' in df_filtered.columns:
+        # Debug information
+        with st.expander("🔍 Debug Trait Data", expanded=False):
+            st.markdown(f"* Total games: {len(df_filtered)}")
+            st.markdown(f"* Columns available: {list(df_filtered.columns)}")
+            st.markdown(f"* 'traits' column exists {'✅' if 'traits' in df_filtered.columns else '❌'}")
+            
+            # Show first few games' trait data
+            st.markdown("**First 5 games trait data:**")
+            for idx, (_, row) in enumerate(df_filtered.head(5).iterrows()):
+                trait_data = row['traits'] if 'traits' in row else []
+                st.markdown(f"Game {idx+1}: {trait_data} (type: {type(trait_data)})")
+            
+            # Count games with non-empty traits
+            non_empty_traits = df_filtered[df_filtered['traits'].apply(lambda x: len(x) > 0 if isinstance(x, list) else False)]
+            st.markdown(f"* Games with non-empty traits: {len(non_empty_traits)}/{len(df_filtered)}")
+            
+            # Show some examples
+            if len(non_empty_traits) > 0:
+                examples = non_empty_traits['traits'].head(3).tolist()
+                st.markdown(f"* Trait examples: {examples}")
         
-        if 'traits' in df_filtered.columns:
-            st.write("- 'traits' column exists ✅")
-            
-            # Show first 5 games' trait data
-            st.write("**First 5 games trait data:**")
-            for i, (_, match) in enumerate(df_filtered.head(5).iterrows()):
-                trait_data = match['traits'] if 'traits' in match else 'No traits field'
-                st.write(f"  Game {i+1}: {trait_data} (type: {type(trait_data)})")
-            
-            # Count non-empty trait data
-            non_empty_traits = 0
-            trait_examples = []
-            
-            for _, match in df_filtered.iterrows():
-                if 'traits' in match and match['traits']:
-                    if isinstance(match['traits'], list) and len(match['traits']) > 0:
-                        non_empty_traits += 1
-                        if len(trait_examples) < 3:  # Store first 3 examples
-                            trait_examples.append(match['traits'])
-                    elif isinstance(match['traits'], str) and match['traits'].strip():
-                        non_empty_traits += 1
-                        if len(trait_examples) < 3:
-                            trait_examples.append(match['traits'])
-            
-            st.write(f"- Games with non-empty traits: {non_empty_traits}/{len(df_filtered)}")
-            st.write(f"- Trait examples: {trait_examples}")
-            
-            # Try to process traits
-            if non_empty_traits > 0:
-                trait_placements = []
-                processing_log = []
+        # Extract trait-placement pairs with improved parsing
+        trait_placements = []
+        
+        for idx, (_, match) in enumerate(df_filtered.iterrows()):
+            if match['traits'] and len(match['traits']) > 0:
+                placement = match['placement']
                 
-                for i, (_, match) in enumerate(df_filtered.iterrows()):
-                    if 'traits' in match and match['traits']:
-                        traits = match['traits']
+                for trait_entry in match['traits']:
+                    if isinstance(trait_entry, str) and trait_entry != 'TFT14':
+                        # Handle different possible formats:
+                        # Format 1: 'TFT14_Armorclad_2'
+                        # Format 2: 'Armorclad_2' 
+                        # Format 3: Just 'Armorclad'
                         
-                        if isinstance(traits, list) and len(traits) > 0:
-                            # Process the first trait
-                            first_trait = traits[0]
+                        if '_' in trait_entry:
+                            parts = trait_entry.split('_')
                             
-                            # Try different parsing methods
-                            if isinstance(first_trait, str):
-                                if '_' in first_trait:
-                                    parts = first_trait.split('_')
-                                    if len(parts) >= 2:
-                                        clean_trait = parts[1]  # TFT14_Armorclad_2 -> Armorclad
-                                        trait_placements.append({
-                                            'trait': clean_trait,
-                                            'placement': match['placement']
-                                        })
-                                        if len(processing_log) < 5:
-                                            processing_log.append(f"Game {i+1}: {first_trait} -> {clean_trait}")
+                            if len(parts) >= 3 and parts[0] == 'TFT14':
+                                # Format: TFT14_Armorclad_2
+                                trait_name = parts[1]
+                                trait_tier = parts[2] if parts[2].isdigit() else '1'
+                            elif len(parts) >= 2:
+                                # Format: Armorclad_2 or similar
+                                trait_name = parts[0]
+                                trait_tier = parts[1] if parts[1].isdigit() else '1'
+                            else:
+                                # Format: Just trait name
+                                trait_name = trait_entry
+                                trait_tier = '1'
+                        else:
+                            # No underscores, just trait name
+                            trait_name = trait_entry
+                            trait_tier = '1'
+                        
+                        # Only add if we got a valid trait name that's not just 'TFT14'
+                        if trait_name and trait_name != 'TFT14' and len(trait_name) > 2:
+                            trait_placements.append({
+                                'trait': trait_name,
+                                'trait_with_tier': f"{trait_name} ({trait_tier})",
+                                'placement': placement,
+                                'tier': trait_tier
+                            })
+        
+        if trait_placements:
+            trait_df = pd.DataFrame(trait_placements)
+            
+            # Calculate average placement by trait (only show traits with 2+ games)
+            trait_summary = trait_df.groupby('trait').agg({
+                'placement': ['mean', 'count']
+            }).round(2)
+            trait_summary.columns = ['avg_placement', 'games']
+            trait_summary = trait_summary[trait_summary['games'] >= 2]  # Lowered threshold
+            
+            if len(trait_summary) > 0:
+                trait_summary = trait_summary.reset_index()
+                trait_summary['performance_score'] = 9 - trait_summary['avg_placement']
                 
-                st.write("**Processing examples:**")
-                for log in processing_log:
-                    st.write(f"  {log}")
+                # Create vertical bar chart
+                fig_trait = px.bar(
+                    trait_summary.nlargest(8, 'performance_score'),  # Show top 8
+                    x='trait',
+                    y='performance_score',
+                    title="Best Traits by Performance",
+                    color='avg_placement',
+                    color_continuous_scale='RdYlGn_r',
+                    text='games'
+                )
+                fig_trait.update_layout(
+                    plot_bgcolor='rgba(0,0,0,0)',
+                    paper_bgcolor='rgba(0,0,0,0)',
+                    yaxis=dict(title="Performance Score (Higher = Better)"),
+                    xaxis=dict(title="Main Trait", tickangle=45),
+                    showlegend=False,
+                    height=400
+                )
+                fig_trait.update_traces(
+                    texttemplate='%{text} games', 
+                    textposition='outside',
+                    textfont_size=10
+                )
+                st.plotly_chart(fig_trait, use_container_width=True)
                 
-                st.write(f"**Total trait-placement pairs found: {len(trait_placements)}**")
+                # Show trait summary table
+                st.markdown("**Trait Performance Summary:**")
+                display_trait_df = trait_summary[['trait', 'avg_placement', 'games']].copy()
+                display_trait_df['avg_placement'] = display_trait_df['avg_placement'].round(2)
+                st.dataframe(display_trait_df, use_container_width=True, hide_index=True)
                 
-                if len(trait_placements) > 0:
-                    trait_df = pd.DataFrame(trait_placements)
-                    unique_traits = trait_df['trait'].unique()
-                    st.write(f"**Unique traits: {list(unique_traits)}**")
-                    
-                    # Show trait frequency
-                    trait_counts = trait_df['trait'].value_counts()
-                    st.write("**Trait frequency:**")
-                    for trait, count in trait_counts.head(10).items():
-                        st.write(f"  {trait}: {count} games")
-                    
-                    # Try to create the chart
-                    trait_summary = trait_df.groupby('trait').agg({
-                        'placement': ['mean', 'count']
-                    }).round(2)
-                    trait_summary.columns = ['avg_placement', 'games']
-                    traits_with_enough_games = trait_summary[trait_summary['games'] >= 3]
-                    
-                    st.write(f"**Traits with 3+ games: {len(traits_with_enough_games)}**")
-                    
-                    if len(traits_with_enough_games) > 0:
-                        st.write("🎉 **Should be able to create chart!**")
-                        # Create the chart here...
-                    else:
-                        st.info("Need more games with each trait (3+ games) for reliable analysis")
-                else:
-                    st.warning("No trait-placement pairs could be created from the data")
             else:
-                st.warning("No games found with valid trait data")
+                st.info("Need more games with each trait (2+ games) for analysis")
         else:
-            st.error("No 'traits' column found in the data")
+            st.error("❌ No valid trait data found! The API data extraction needs to be fixed.")
+            st.markdown("**Possible issues:**")
+            st.markdown("- API script isn't extracting trait names properly")
+            st.markdown("- Trait data is coming through as just 'TFT14' without actual trait names")
+            st.markdown("- Need to check the trait extraction in `clean_tft_analyzer.py`")
     else:
-        st.error("No games in filtered data")
-    
-    st.markdown("---")
-    st.write("💡 **This debug info shows exactly what trait data is available and how it's being processed.**")
+        st.info("No trait data available for analysis")
 
 # Game Mode Comparison (NEW)
 if selected_mode == 'All' and len(df['game_mode'].unique()) > 1:
@@ -629,7 +637,14 @@ with tab1:
         
         if not best_performers.empty:
             for item, stats in best_performers.iterrows():
-                display_item_with_icon(item, stats)
+                # Convert stats to dictionary format
+                stats_dict = {
+                    'games': int(stats['games']),
+                    'avg_placement': float(stats['avg_placement']), 
+                    'top4_rate': float(stats['top4_rate']),
+                    'placements': stats.get('placements', [])
+                }
+                display_item_with_icon(item, stats_dict)
                 st.markdown("---")
         else:
             st.info("No items meet the criteria for best performers")
@@ -650,7 +665,14 @@ with tab2:
         
         if not problem_items.empty:
             for item, stats in problem_items.iterrows():
-                display_item_with_icon(item, stats)
+                # Convert stats to dictionary format
+                stats_dict = {
+                    'games': int(stats['games']),
+                    'avg_placement': float(stats['avg_placement']), 
+                    'top4_rate': float(stats['top4_rate']),
+                    'placements': stats.get('placements', [])
+                }
+                display_item_with_icon(item, stats_dict)
                 st.markdown("---")
         else:
             st.info("No items meet the criteria for problem items")
@@ -676,6 +698,90 @@ with tab3:
             st.markdown("---")
     else:
         st.info("No item data available for the selected criteria.")
+
+# Recent Games History
+st.markdown("---")
+st.subheader("📋 Recent Games History")
+
+# Show last 10 games in a nice format
+recent_games = df_filtered.head(10).copy()
+recent_games['placement_emoji'] = recent_games['placement'].apply(
+    lambda x: "🥇" if x == 1 else "🥈" if x == 2 else "🥉" if x == 3 else "✅" if x <= 4 else "❌"
+)
+
+# Create columns for the recent games display
+for idx, (_, game) in enumerate(recent_games.iterrows()):
+    col1, col2, col3, col4, col5 = st.columns([1, 2, 2, 2, 3])
+    
+    with col1:
+        st.markdown(f"**Game {idx+1}**")
+        st.markdown(f"{game['placement_emoji']} #{game['placement']}")
+    
+    with col2:
+        st.markdown(f"**Level {game['level']}**")
+        st.caption(f"{game['damage']} damage")
+    
+    with col3:
+        st.markdown(f"**Gold: {game['gold_left']}**")
+        st.caption(f"{len(game['items'])} items")
+    
+    with col4:
+        # Show top 2 items
+        top_items = game['items'][:2] if len(game['items']) >= 2 else game['items']
+        st.markdown("**Items:**")
+        for item in top_items:
+            st.caption(f"• {clean_item_name(item)}")
+    
+    with col5:
+        # Show top 2 traits
+        if game['traits'] and len(game['traits']) > 0:
+            st.markdown("**Traits:**")
+            traits_to_show = game['traits'][:2]
+            for trait in traits_to_show:
+                if isinstance(trait, str) and '_' in trait:
+                    parts = trait.split('_')
+                    if len(parts) >= 2:
+                        trait_name = parts[1] if parts[0] == 'TFT14' else parts[0]
+                        trait_tier = parts[2] if len(parts) >= 3 else parts[1]
+                        st.caption(f"• {trait_name} ({trait_tier})")
+                else:
+                    st.caption(f"• {trait}")
+    
+    if idx < len(recent_games) - 1:
+        st.markdown("---")
+
+# Performance Trends
+st.markdown("---")
+st.subheader("📈 Performance Trends")
+
+if len(df_filtered) >= 10:
+    # Create a rolling average of placement
+    df_trends = df_filtered.head(20).copy()
+    df_trends['game_number'] = range(1, len(df_trends) + 1)
+    df_trends['rolling_avg'] = df_trends['placement'].rolling(window=5, min_periods=1).mean()
+    
+    fig_trend = px.line(
+        df_trends,
+        x='game_number',
+        y='rolling_avg',
+        title="Placement Trend (5-game rolling average)",
+        markers=True
+    )
+    
+    # Add reference line at 4.5 (average placement)
+    fig_trend.add_hline(y=4.5, line_dash="dash", line_color="gray", 
+                       annotation_text="Average (4.5)")
+    
+    fig_trend.update_layout(
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        yaxis=dict(title="Average Placement (Lower = Better)", autorange="reversed"),
+        xaxis=dict(title="Game Number (Most Recent → Oldest)")
+    )
+    
+    st.plotly_chart(fig_trend, use_container_width=True)
+else:
+    st.info("Need at least 10 games for trend analysis")
 
 # Footer
 st.markdown("---")
