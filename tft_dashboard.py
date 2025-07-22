@@ -350,57 +350,62 @@ st.subheader("📊 Performance Analysis")
 chart_col1, chart_col2 = st.columns(2)
 
 with chart_col1:
-    # Item performance chart - VERTICAL BARS WITH ICONS
+    # Item performance matrix - CLEAN GRID FORMAT
+    st.markdown("### ⚔️ Item Performance Matrix")
+    
     if not item_performance_filtered.empty and len(item_performance_filtered) > 0:
-        best_items = item_performance_filtered.nsmallest(8, 'avg_placement')
+        best_items = item_performance_filtered.nsmallest(12, 'avg_placement')
         
         if len(best_items) > 0:
-            # Create inverted performance score (same as level analysis)
             best_items_data = best_items.reset_index()
-            best_items_data['performance_score'] = 9 - best_items_data['avg_placement']
-            best_items_data['clean_names'] = best_items_data['index'].apply(clean_item_name)
             
-            fig_item_perf = px.bar(
-                best_items_data,
-                x='clean_names',
-                y='performance_score',
-                title="🏆 Best Items by Performance",
-                color='avg_placement',
-                color_continuous_scale='RdYlGn_r',
-                text='games'
-            )
+            # Create grid layout - 3 columns
+            cols_per_row = 3
+            items_to_show = best_items_data.head(12)  # Show top 12 items
             
-            # Add item icons as images on x-axis
-            icon_urls = [get_item_icon_url(clean_item_name(item)) for item in best_items_data['index']]
-            
-            fig_item_perf.update_layout(
-                plot_bgcolor='rgba(0,0,0,0)',
-                paper_bgcolor='rgba(0,0,0,0)',
-                yaxis=dict(title="Performance Score (Taller = Better)"),
-                xaxis=dict(
-                    title="Item",
-                    tickmode='array',
-                    tickvals=list(range(len(best_items_data))),
-                    ticktext=[''] * len(best_items_data),  # Remove text labels
-                ),
-                showlegend=False,
-                images=[
-                    dict(
-                        source=url,
-                        xref="x", yref="paper",
-                        x=i, y=-0.15,
-                        sizex=0.8, sizey=0.1,
-                        xanchor="center", yanchor="middle"
-                    ) for i, url in enumerate(icon_urls)
-                ]
-            )
-            
-            fig_item_perf.update_traces(
-                texttemplate='%{text} games', 
-                textposition='outside',
-                textfont_size=10
-            )
-            st.plotly_chart(fig_item_perf, use_container_width=True)
+            for i in range(0, len(items_to_show), cols_per_row):
+                cols = st.columns(cols_per_row)
+                
+                for j, col in enumerate(cols):
+                    item_idx = i + j
+                    if item_idx < len(items_to_show):
+                        item_row = items_to_show.iloc[item_idx]
+                        item_name = item_row['index']
+                        clean_name = clean_item_name(item_name)
+                        
+                        with col:
+                            # Item container with border
+                            with st.container():
+                                # Icon
+                                try:
+                                    icon_url = get_item_icon_url(clean_name)
+                                    st.image(icon_url, width=60)
+                                except:
+                                    st.markdown("⚔️", unsafe_allow_html=True)
+                                
+                                # Item name (smaller text)
+                                st.markdown(f"**{clean_name}**", unsafe_allow_html=True)
+                                
+                                # Performance metrics
+                                avg_place = item_row['avg_placement']
+                                games = item_row['games']
+                                top4_rate = item_row['top4_rate']
+                                
+                                # Color code based on performance
+                                if avg_place < 3.5:
+                                    color = "#2ecc71"  # Green for good
+                                elif avg_place < 4.5:
+                                    color = "#f39c12"  # Orange for okay
+                                else:
+                                    color = "#e74c3c"  # Red for poor
+                                
+                                # Main metric - Average Placement
+                                st.markdown(f'<div style="text-align: center; background-color: {color}; padding: 8px; border-radius: 4px; color: white; font-weight: bold; margin: 4px 0;">{avg_place:.2f} avg</div>', unsafe_allow_html=True)
+                                
+                                # Secondary metrics
+                                st.caption(f"{games} games • {top4_rate:.0f}% top 4")
+                                
+                                st.markdown("---")
         else:
             st.info(f"Not enough item data for {selected_mode} games with minimum {min_item_games} usage")
     else:
