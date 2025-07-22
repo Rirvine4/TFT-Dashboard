@@ -467,11 +467,11 @@ with chart_col1:
     st.markdown("")
 
 with chart_col2:
-    # Trait vs Placement Analysis (FIXED VERSION)
-    st.markdown("### 🎭 Trait Performance")
+    # Trait Performance Matrix (SAME FORMAT AS ITEMS)
+    st.markdown("### 🎭 Trait Performance Matrix")
     
     if len(df_filtered) > 0 and 'traits' in df_filtered.columns:
-        # Debug information
+        # Debug information in collapsible section
         with st.expander("🔍 Debug Trait Data", expanded=False):
             st.markdown(f"* Total games: {len(df_filtered)}")
             st.markdown(f"* Columns available: {list(df_filtered.columns)}")
@@ -547,38 +547,73 @@ with chart_col2:
             
             if len(trait_summary) > 0:
                 trait_summary = trait_summary.reset_index()
-                trait_summary['performance_score'] = 9 - trait_summary['avg_placement']
                 
-                # Create vertical bar chart
-                fig_trait = px.bar(
-                    trait_summary.nlargest(8, 'performance_score'),  # Show top 8
-                    x='trait',
-                    y='performance_score',
-                    title="Best Traits by Performance",
-                    color='avg_placement',
-                    color_continuous_scale='RdYlGn_r',
-                    text='games'
-                )
-                fig_trait.update_layout(
-                    plot_bgcolor='rgba(0,0,0,0)',
-                    paper_bgcolor='rgba(0,0,0,0)',
-                    yaxis=dict(title="Performance Score (Higher = Better)"),
-                    xaxis=dict(title="Main Trait", tickangle=45),
-                    showlegend=False,
-                    height=400
-                )
-                fig_trait.update_traces(
-                    texttemplate='%{text} games', 
-                    textposition='outside',
-                    textfont_size=10
-                )
-                st.plotly_chart(fig_trait, use_container_width=True)
+                # Get best performing traits (top 9)
+                best_traits = trait_summary.nsmallest(9, 'avg_placement')
                 
-                # Show trait summary table
-                st.markdown("**Trait Performance Summary:**")
-                display_trait_df = trait_summary[['trait', 'avg_placement', 'games']].copy()
-                display_trait_df['avg_placement'] = display_trait_df['avg_placement'].round(2)
-                st.dataframe(display_trait_df, use_container_width=True, hide_index=True)
+                if len(best_traits) > 0:
+                    st.markdown('<p style="color: #2ecc71; font-size: 14px;">Traits with strong performance - prioritize these synergies!</p>', unsafe_allow_html=True)
+                    
+                    # Create grid layout - 3 columns x 3 rows
+                    cols_per_row = 3
+                    traits_to_show = best_traits.head(9)
+                    
+                    for i in range(0, len(traits_to_show), cols_per_row):
+                        cols = st.columns(cols_per_row)
+                        
+                        for j, col in enumerate(cols):
+                            trait_idx = i + j
+                            if trait_idx < len(traits_to_show):
+                                trait_row = traits_to_show.iloc[trait_idx]
+                                trait_name = trait_row['trait']
+                                
+                                with col:
+                                    with st.container():
+                                        # Trait emoji/icon (you could map these to actual trait icons)
+                                        trait_emoji_map = {
+                                            'Vanguard': '🛡️',
+                                            'Bruiser': '💪',
+                                            'Armorclad': '⚔️',
+                                            'Bastion': '🏰',
+                                            'Exotech': '🤖',
+                                            'Syndicate': '👤',
+                                            'AnimaSquad': '🚀',
+                                            'BoomBots': '💥',
+                                            'Cypher': '🔒',
+                                            'Slayer': '⚡',
+                                            'GodoftheNet': '🌐',
+                                            'StreetDemon': '😈',
+                                            'Techie': '🔧',
+                                            'Nitro': '🏎️',
+                                            'Dynamo': '⚡',
+                                            'SoulKiller': '💀',
+                                            'GoldenOx': '🐂'
+                                        }
+                                        
+                                        trait_icon = trait_emoji_map.get(trait_name, '🎯')
+                                        st.markdown(f'<div style="text-align: center; font-size: 32px; margin: 8px 0;">{trait_icon}</div>', unsafe_allow_html=True)
+                                        
+                                        st.markdown(f"**{trait_name}**")
+                                        
+                                        avg_place = trait_row['avg_placement']
+                                        games = trait_row['games']
+                                        
+                                        # Calculate top4 rate for this trait
+                                        trait_games = trait_df[trait_df['trait'] == trait_name]
+                                        top4_rate = (trait_games['placement'] <= 4).mean() * 100
+                                        
+                                        # Color based on performance
+                                        if avg_place < 3.5:
+                                            color = "#2ecc71"  # Green
+                                        elif avg_place < 4.5:
+                                            color = "#f39c12"  # Orange  
+                                        else:
+                                            color = "#e74c3c"  # Red
+                                        
+                                        st.markdown(f'<div style="text-align: center; background-color: {color}; padding: 6px; border-radius: 4px; color: white; font-weight: bold; margin: 4px 0; font-size: 14px;">{avg_place:.2f} avg</div>', unsafe_allow_html=True)
+                                        st.caption(f"{games} games • {top4_rate:.0f}% top 4")
+                else:
+                    st.info("No traits with sufficient games (2+) for analysis")
                 
             else:
                 st.info("Need more games with each trait (2+ games) for analysis")
