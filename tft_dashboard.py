@@ -189,7 +189,7 @@ def display_item_with_icon(item_name, stats):
             # Try to load the actual icon from Riot
             try:
                 icon_url = get_item_icon_url(clean_name)
-                st.image(icon_url, width=64, use_column_width=False)
+                st.image(icon_url, width=64)
                 icon_displayed = True
             except:
                 pass
