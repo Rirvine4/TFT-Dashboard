@@ -391,52 +391,52 @@ def generate_key_insight(df_filtered, item_performance_filtered):
             worst_item = frequent_items.loc[frequent_items['avg_placement'].idxmax()]
             if worst_item['avg_placement'] > 4.5:
                 return {
-                    'message': f"Stop building **{clean_item_name(worst_item.name)}** - you average **{worst_item['avg_placement']:.1f} placement** with it",
-                    'action': f"Try building alternative items instead",
+                    'message': f"**{clean_item_name(worst_item.name)}** might be situational - averaging **{worst_item['avg_placement']:.1f} placement** across {worst_item['games']} games",
+                    'action': f"Consider prioritizing other items or being more selective with when to build it",
                     'type': 'item'
                 }
     
     # 2. Quick level check
     if avg_level < 7.5:
         return {
-            'message': f"Your **Level {avg_level:.1f}** average is holding you back",
-            'action': "Focus on economy management to level faster",
+            'message': f"Your **Level {avg_level:.1f}** average suggests room for economic improvement",
+            'action': "Consider focusing on stronger econ management to level more consistently",
             'type': 'leveling'
         }
     
     # 3. Basic placement check
     if avg_placement > 5.0:
         return {
-            'message': f"Your **{avg_placement:.1f} average placement** needs improvement",
-            'action': "Focus on fundamentals: positioning and meta comps",
+            'message': f"Your **{avg_placement:.1f} average placement** indicates potential for improvement",
+            'action': "Consider reviewing fundamentals: positioning, transitions, and meta awareness",
             'type': 'placement'
         }
     
     # 4. Top 4 rate check
     if top4_rate < 50:
         return {
-            'message': f"Your **{top4_rate:.1f}% Top 4 rate** is below climbing threshold",
-            'action': "Work on consistent play over high-risk strategies",
+            'message': f"Your **{top4_rate:.1f}% Top 4 rate** suggests inconsistent results",
+            'action': "Consider focusing on consistent strategies over high-risk, high-reward plays",
             'type': 'consistency'
         }
     
     # 5. If everything looks good
     return {
         'message': f"Strong performance! **{avg_placement:.1f} avg placement** and **{top4_rate:.1f}% top 4 rate**",
-        'action': "Keep refining your gameplay and stay consistent",
+        'action': "Keep refining your decision-making and maintain this consistency",
         'type': 'positive'
     }
 
 # Generate and display the key insight - MUCH FASTER
 key_insight = generate_key_insight(df_filtered, item_performance_filtered)
 
-# Simplified display
+# Simplified display with softer language
 if key_insight['type'] == 'positive':
     st.success(f"🎉 **KEY INSIGHT:** {key_insight['message']}")
-    st.info(f"💡 **Keep It Up:** {key_insight['action']}")
+    st.info(f"💡 **Continue:** {key_insight['action']}")
 else:
-    st.error(f"🚨 **KEY INSIGHT:** {key_insight['message']}")
-    st.warning(f"💡 **Action:** {key_insight['action']}")
+    st.warning(f"📊 **KEY INSIGHT:** {key_insight['message']}")
+    st.info(f"💡 **Suggestion:** {key_insight['action']}")
 
 # Add a small explanation
 with st.expander("ℹ️ How Key Insights Work", expanded=False):
@@ -908,24 +908,24 @@ with col2:
         ]
         if not frequent_bad_items.empty:
             worst_item = frequent_bad_items.loc[frequent_bad_items['avg_placement'].idxmax()]
-            improvements.append(f"Reduce {clean_item_name(worst_item.name)} usage")
+            improvements.append(f"Consider alternatives to {clean_item_name(worst_item.name)} in some situations")
     
     if avg_placement > 4.5:
-        improvements.append("Focus on early game economy")
+        improvements.append("Consider focusing on early game economy fundamentals")
     if top4_rate < 60:
-        improvements.append("Work on consistent top 4 finishes")
+        improvements.append("Look for opportunities to improve consistency")
     if avg_level < 8:
-        improvements.append("Improve leveling timing")
+        improvements.append("Consider optimizing leveling timing and patterns")
     
     # Check for level 7 struggles
     level_7_games = df_filtered[df_filtered['level'] == 7]
     if len(level_7_games) > 3 and level_7_games['placement'].mean() > 5:
-        improvements.append("Push for level 8 more often")
+        improvements.append("Consider pushing for level 8 more often when possible")
     
     if not improvements:
-        improvements = ["Continue current strategy", "Fine-tune positioning", "Master meta comps"]
+        improvements = ["Continue refining your current strategies", "Look for small optimization opportunities", "Keep practicing meta compositions"]
     
-    st.markdown("#### ⚠️ **Areas to Improve**")
+    st.markdown("#### 💡 **Growth Opportunities**")
     for improvement in improvements[:4]:
         st.markdown(f"- {improvement}")
 
