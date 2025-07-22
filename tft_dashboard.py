@@ -63,7 +63,7 @@ def clean_item_name(item_name):
 def get_item_icon_url(item_name):
     """Get the official Riot Data Dragon icon URL for a TFT item"""
     # Clean the item name and map to Riot's official item IDs
-    clean_name = item_name.replace(' ', '').replace("'", '').replace('-', '').lower()
+    clean_name = item_name.replace(' ', '').replace("'", '').replace('-', '').replace('_', '').lower()
     
     # Map item names to official Riot Data Dragon item IDs for TFT Set 14
     riot_item_mapping = {
@@ -106,6 +106,7 @@ def get_item_icon_url(item_name):
         'redemption': 'TFT_Item_Redemption.png',
         'crownguard': 'TFT_Item_Crownguard.png',
         'sterakskage': 'TFT_Item_SteraksGage.png',
+        'steraksgag': 'TFT_Item_SteraksGage.png',  # Alternative spelling
         'edgeofnight': 'TFT_Item_EdgeOfNight.png',
         'spectralcutlass': 'TFT_Item_SpectralCutlass.png',
         'unstableconcoction': 'TFT_Item_UnstableConcoction.png',
@@ -114,10 +115,29 @@ def get_item_icon_url(item_name):
         'spectralGauntlet': 'TFT_Item_SpectralGauntlet.png',
         'powerGauntlet': 'TFT_Item_PowerGauntlet.png',
         'emptybag': 'TFT_Item_EmptyBag.png',
+        
+        # FIXES for the broken icons from your screenshot:
+        'needlesslylargerod': 'TFT_Item_NeedlesslyLargeRod.png',
+        'tearofthegoddess': 'TFT_Item_TearOfTheGoddess.png',
+        'thecollector': 'TFT_Item_TheCollector.png',
+        'bfsword': 'TFT_Item_BFSword.png',
+        'chainvest': 'TFT_Item_ChainVest.png',
+        'varuscyberneticitem': 'TFT_Item_VarusCyberneticAugment.png',  # TFT Set 14 specific
+        'itemarmorcladembleitem': 'TFT_Item_ArmorlcadEmblem.png',  # Set 14 emblem
+        'itemnitrochromecounter': 'TFT_Item_NitroChrome.png',  # Set 14 specific
+        'tft5itemgargolestoneplatradiant': 'TFT_Item_GargoyleStoneplate_Radiant.png',  # Radiant version
+        
+        # Additional common items that might be missing:
+        'giantsslayer': 'TFT_Item_GiantSlayer.png',  # Alternative spelling
+        'recurvebow': 'TFT_Item_RecurveBow.png',
+        'negatroncloak': 'TFT_Item_NegatronCloak.png',
+        'giantsbelt': 'TFT_Item_GiantsBelt.png',
+        'sparringgloves': 'TFT_Item_SparringGloves.png',
+        'spatula': 'TFT_Item_Spatula.png',
     }
     
     # Get the official Riot filename
-    riot_filename = riot_item_mapping.get(clean_name, f'TFT_Item_{item_name.replace(" ", "")}.png')
+    riot_filename = riot_item_mapping.get(clean_name, f'TFT_Item_{item_name.replace(" ", "").replace("_", "")}.png')
     
     # Use Riot's official Data Dragon CDN
     return f"https://ddragon.leagueoflegends.com/cdn/14.24.1/img/tft-item/{riot_filename}"
