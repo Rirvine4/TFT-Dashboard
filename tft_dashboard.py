@@ -143,19 +143,75 @@ def get_item_icon_url(item_name):
     return f"https://ddragon.leagueoflegends.com/cdn/14.24.1/img/tft-item/{riot_filename}"
 
 def display_item_with_icon(item_name, stats):
-    """Display item with icon and stats"""
+    """Display item with icon and stats - UPDATED WITH EMOJI FALLBACKS"""
     col1, col2 = st.columns([1, 3])
     
     # Clean the item name for display
     clean_name = clean_item_name(item_name)
     
     with col1:
-        try:
-            icon_url = get_item_icon_url(clean_name)
-            st.image(icon_url, width=64)
-        except Exception as e:
-            # Fallback if image doesn't load
-            st.markdown("⚔️")
+        # COMPREHENSIVE EMOJI FALLBACK SYSTEM
+        icon_displayed = False
+        
+        # First, check for specific items that need custom emojis
+        special_item_emojis = {
+            'titans resolve': '🛡️💪',
+            'tear of the goddess': '💧✨', 
+            'tft5 item gargoyle stoneplate radiant': '🌟🛡️',
+            'gargoyle stoneplate radiant': '🌟🛡️',
+            'the collector': '💀⚔️',
+            'b f sword': '⚔️💥',
+            'bf sword': '⚔️💥',
+            'chain vest': '🦺',
+            'rapid fire cannon': '🏹⚡',
+            'rapidfire cannon': '🏹⚡',
+            'item armorclad emblem item': '⚔️🔰',
+            'armorclad emblem': '⚔️🔰',
+            'varus cybernetic item': '🤖🏹',
+            'item nitro chrome counter': '🏎️⚡',
+            'nitro chrome counter': '🏎️⚡',
+            'needlessly large rod': '🔮⚡',
+            'recurve bow': '🏹',
+            'negatron cloak': '🛡️🌙',
+            'giants belt': '🟫💪',
+            'sparring gloves': '🥊',
+            'spatula': '🍴✨'
+        }
+        
+        # Normalize the item name for comparison
+        normalized_name = clean_name.lower().replace('_', ' ').replace('-', ' ')
+        
+        # Check if we have a specific emoji for this item
+        if normalized_name in special_item_emojis:
+            st.markdown(f'<div style="text-align: center; font-size: 40px; margin: 8px 0;">{special_item_emojis[normalized_name]}</div>', unsafe_allow_html=True)
+            icon_displayed = True
+        else:
+            # Try to load the actual icon from Riot
+            try:
+                icon_url = get_item_icon_url(clean_name)
+                st.image(icon_url, width=64, use_column_width=False)
+                icon_displayed = True
+            except:
+                pass
+        
+        # If no icon was displayed, use smart category fallbacks
+        if not icon_displayed:
+            if any(word in normalized_name for word in ['radiant', 'shimmer', 'prismatic']):
+                st.markdown(f'<div style="text-align: center; font-size: 40px; margin: 8px 0;">✨⚔️</div>', unsafe_allow_html=True)
+            elif any(word in normalized_name for word in ['emblem', 'crest']):
+                st.markdown(f'<div style="text-align: center; font-size: 40px; margin: 8px 0;">🔰</div>', unsafe_allow_html=True)
+            elif any(word in normalized_name for word in ['artifact', 'ornn', 'chosen']):
+                st.markdown(f'<div style="text-align: center; font-size: 40px; margin: 8px 0;">🏺</div>', unsafe_allow_html=True)
+            elif any(word in normalized_name for word in ['sword', 'blade', 'edge']):
+                st.markdown(f'<div style="text-align: center; font-size: 40px; margin: 8px 0;">⚔️</div>', unsafe_allow_html=True)
+            elif any(word in normalized_name for word in ['bow', 'cannon', 'gun']):
+                st.markdown(f'<div style="text-align: center; font-size: 40px; margin: 8px 0;">🏹</div>', unsafe_allow_html=True)
+            elif any(word in normalized_name for word in ['armor', 'vest', 'plate', 'cloak']):
+                st.markdown(f'<div style="text-align: center; font-size: 40px; margin: 8px 0;">🛡️</div>', unsafe_allow_html=True)
+            elif any(word in normalized_name for word in ['rod', 'staff', 'cap']):
+                st.markdown(f'<div style="text-align: center; font-size: 40px; margin: 8px 0;">🔮</div>', unsafe_allow_html=True)
+            else:
+                st.markdown(f'<div style="text-align: center; font-size: 40px; margin: 8px 0;">⚔️</div>', unsafe_allow_html=True)
     
     with col2:
         st.markdown(f"**{clean_name}**")  # Use clean name for display
