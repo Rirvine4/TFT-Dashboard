@@ -1,2729 +1,395 @@
 {
   "player_info": {
     "name": "Beebo Prime#NA1",
-    "games_analyzed": 75
+    "games_analyzed": 8
   },
   "matches": [
     {
-      "placement": 2,
-      "level": 8,
-      "gold_left": 28,
-      "damage": 100,
+      "placement": 6,
+      "level": 9,
+      "gold_left": 2,
+      "damage": 79,
       "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_HotRod_2",
-        "TFT14_Thirsty_2"
+        "TFT15_Destroyer_1",
+        "TFT15_OldMentor_1",
+        "TFT15_SentaiRanger_2",
+        "TFT15_Spellslinger_3",
+        "TFT15_Strategist_1"
       ],
       "items": [
-        "TFT_Item_Redemption",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_RedBuff",
-        "TFT_Item_Leviathan",
-        "TFT_Item_ArchangelsStaff",
+        "TFT_Item_BrambleVest",
+        "TFT9_Item_OrnnHullbreaker",
+        "TFT_Item_DragonsClaw",
+        "TFT_Item_MadredsBloodrazor",
+        "TFT_Item_SpearOfShojin",
+        "TFT_Item_UnstableConcoction",
+        "TFT_Item_RecurveBow",
         "TFT_Item_JeweledGauntlet",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_GiantsBelt",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_StatikkShiv",
-        "TFT14_Item_Nitro_ChromeCounter"
+        "TFT_Item_UnstableConcoction",
+        "TFT_Item_TitansResolve",
+        "TFT15_RoboRanger_Core",
+        "TFT15_RoboRanger_Sword"
       ],
-      "units_count": 9,
+      "units_count": 11,
       "game_mode": "Solo"
     },
     {
-      "placement": 4,
+      "placement": 1,
       "level": 9,
-      "gold_left": 13,
-      "damage": 40,
+      "gold_left": 1,
+      "damage": 229,
       "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Bruiser_1",
-        "TFT14_Divinicorp_1",
-        "TFT14_EdgeRunner_2",
-        "TFT14_Marksman_1",
-        "TFT14_Netgod_1",
-        "TFT14_Overlord_1"
+        "TFT15_Bastion_1",
+        "TFT15_Captain_1",
+        "TFT15_ElTigre_1",
+        "TFT15_Empyrean_1",
+        "TFT15_OldMentor_1",
+        "TFT15_Protector_1",
+        "TFT15_Sniper_1",
+        "TFT15_Strategist_1",
+        "TFT15_TheCrew_7"
       ],
       "items": [
-        "TFT14_NaafiriCyberneticItem",
-        "TFT14_MordekaiserCyberneticItem",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_FrozenHeart",
-        "TFT_Item_GuinsoosRageblade",
         "TFT_Item_SpearOfShojin",
         "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_GuardianAngel",
         "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_SteraksGage"
+        "TFT_Item_SpectralGauntlet",
+        "TFT_Item_Redemption",
+        "TFT_Item_GargoyleStoneplate",
+        "TFT_Item_Morellonomicon",
+        "TFT_Item_JeweledGauntlet",
+        "TFT_Item_SpearOfShojin",
+        "TFT_Item_MadredsBloodrazor",
+        "TFT_Item_RunaansHurricane",
+        "TFT_Item_InfinityEdge",
+        "TFT_Item_MadredsBloodrazor",
+        "TFT_Item_Quicksilver",
+        "TFT_Item_RapidFireCannon"
       ],
       "units_count": 9,
       "game_mode": "Solo"
     },
     {
       "placement": 6,
-      "level": 8,
-      "gold_left": 7,
-      "damage": 47,
-      "traits": [
-        "TFT14_Armorclad_2",
-        "TFT14_Divinicorp_1",
-        "TFT14_Overlord_1",
-        "TFT14_Strong_1"
-      ],
-      "items": [
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_RedBuff",
-        "TFT_Item_SpectralGauntlet",
-        "TFT_Item_SparringGloves",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_RedBuff",
-        "TFT_Item_UnstableConcoction",
-        "TFT_Item_Crownguard",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_SparringGloves"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
       "level": 7,
-      "gold_left": 0,
-      "damage": 122,
-      "traits": [
-        "TFT14_Armorclad_2",
-        "TFT14_Divinicorp_1",
-        "TFT14_Thirsty_1"
-      ],
-      "items": [
-        "TFT_Item_Leviathan",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_Morellonomicon",
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_IonicSpark",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_RedBuff",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_RedBuff"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 7,
-      "level": 7,
-      "gold_left": 0,
+      "gold_left": 16,
       "damage": 63,
       "traits": [
-        "TFT14_Bruiser_3",
-        "TFT14_Divinicorp_2",
-        "TFT14_Strong_1"
+        "TFT15_Duelist_1",
+        "TFT15_Empyrean_2",
+        "TFT15_Heavyweight_1",
+        "TFT15_Juggernaut_1"
       ],
       "items": [
-        "TFT_Item_BlueBuff",
-        "TFT_Item_TitansResolve",
-        "TFT_Item_BFSword",
-        "TFT_Item_RunaansHurricane",
+        "TFT_Item_Quicksilver",
         "TFT_Item_GuinsoosRageblade",
+        "TFT_Item_RunaansHurricane",
+        "TFT_Item_SpectralGauntlet",
+        "TFT_Item_Redemption",
         "TFT_Item_InfinityEdge",
-        "TFT_Item_Artifact_LichBane",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_RedBuff",
-        "TFT_Item_DragonsClaw",
         "TFT_Item_AdaptiveHelm"
       ],
       "units_count": 7,
       "game_mode": "Solo"
     },
     {
-      "placement": 6,
-      "level": 7,
-      "gold_left": 5,
-      "damage": 89,
-      "traits": [
-        "TFT14_Netgod_1",
-        "TFT14_Strong_1",
-        "TFT14_Suits_3",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_LocketOfTheIronSolari",
-        "TFT_Item_RedBuff",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_RabadonsDeathcap",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT4_Item_OrnnRanduinsSanctum",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_UnstableConcoction",
-        "TFT_Item_TitansResolve",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_ChainVest"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
+      "placement": 8,
       "level": 8,
-      "gold_left": 1,
-      "damage": 119,
+      "gold_left": 11,
+      "damage": 35,
       "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_Controller_1",
-        "TFT14_Divinicorp_1",
-        "TFT14_StreetDemon_3",
-        "TFT14_Techie_1"
+        "TFT15_DragonFist_1",
+        "TFT15_Heavyweight_1",
+        "TFT15_Juggernaut_3",
+        "TFT15_Luchador_2",
+        "TFT15_SoulFighter_1"
       ],
       "items": [
-        "TFT_Item_UnstableConcoction",
-        "TFT_Item_UnstableConcoction",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_RedBuff",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_Crownguard",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_Leviathan",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_Deathblade"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
-      "level": 8,
-      "gold_left": 1,
-      "damage": 61,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_HotRod_2",
-        "TFT14_Marksman_1",
-        "TFT14_Thirsty_3"
-      ],
-      "items": [
-        "TFT_Item_BrambleVest",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_Morellonomicon",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_InfinityEdge",
-        "TFT4_Item_OrnnTheCollector",
-        "TFT14_Item_Nitro_ChromeCounter"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
-      "level": 9,
-      "gold_left": 0,
-      "damage": 60,
-      "traits": [
-        "TFT14_AnimaSquad_1",
-        "TFT14_Netgod_1",
-        "TFT14_Supercharge_4",
-        "TFT14_Virus_1"
-      ],
-      "items": [
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_Leviathan",
-        "TFT_Item_StatikkShiv",
-        "TFT_Item_WarmogsArmor",
         "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_UnstableConcoction",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_RedBuff",
-        "TFT_Item_WarmogsArmor"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 1,
-      "level": 8,
-      "gold_left": 15,
-      "damage": 170,
-      "traits": [
-        "TFT14_AnimaSquad_3",
-        "TFT14_Techie_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_RabadonsDeathcap",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_IonicSpark",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_InfinityEdge",
-        "TFT14_Item_TechieEmblemItem",
-        "TFT_Item_Leviathan",
-        "TFT_Item_GuinsoosRageblade"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 7,
-      "level": 7,
-      "gold_left": 4,
-      "damage": 29,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Divinicorp_1",
-        "TFT14_Overlord_1",
-        "TFT14_Suits_3",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_ChainVest",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_GiantsBelt",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_Crownguard",
-        "TFT_Item_ChainVest",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_SparringGloves",
-        "TFT_Item_Bloodthirster"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 1,
-      "level": 8,
-      "gold_left": 2,
-      "damage": 141,
-      "traits": [
-        "TFT14_BallisTek_2",
-        "TFT14_Bruiser_1",
-        "TFT14_Divinicorp_2",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_RedBuff",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_Redemption",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_HextechGunblade"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
-      "level": 9,
-      "gold_left": 0,
-      "damage": 80,
-      "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_Divinicorp_1",
-        "TFT14_Mob_2",
-        "TFT14_Strong_1",
-        "TFT14_Swift_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_Redemption",
-        "TFT_Item_SpectralGauntlet",
-        "TFT14_Item_DarkWebEmblemItem",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_LastWhisper"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 7,
-      "level": 7,
-      "gold_left": 1,
-      "damage": 0,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Suits_3",
-        "TFT14_Techie_1"
-      ],
-      "items": [
-        "TFT_Item_ArchangelsStaff",
-        "TFT14_Item_TechieEmblemItem",
-        "TFT4_Item_OrnnTheCollector",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_RedBuff",
-        "TFT_Item_FrozenHeart"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 8,
-      "gold_left": 10,
-      "damage": 177,
-      "traits": [
-        "TFT14_BallisTek_1",
-        "TFT14_Bruiser_1",
-        "TFT14_Cutter_1",
-        "TFT14_EdgeRunner_3"
-      ],
-      "items": [
-        "TFT_Item_Morellonomicon",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_RabadonsDeathcap",
-        "TFT_Item_BrambleVest",
         "TFT_Item_FrozenHeart",
-        "TFT_Item_SpectralGauntlet",
-        "TFT14_SejuaniCyberneticItem",
-        "TFT_Item_RedBuff",
-        "TFT14_ZeriCyberneticItem",
-        "TFT_Item_RunaansHurricane",
         "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_Redemption",
-        "TFT14_Item_EdgeRunnerEmblemItem",
-        "TFT14_MordekaiserCyberneticItem",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_RapidFireCannon",
-        "TFT_Item_PowerGauntlet"
+        "TFT_Item_Bloodthirster",
+        "TFT_Item_Quicksilver",
+        "TFT_Item_GuardianAngel",
+        "TFT_Item_Quicksilver"
       ],
       "units_count": 8,
       "game_mode": "Solo"
     },
     {
-      "placement": 6,
+      "placement": 4,
       "level": 8,
-      "gold_left": 6,
-      "damage": 80,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_EdgeRunner_3",
-        "TFT14_Virus_1"
-      ],
-      "items": [
-        "TFT_Item_BlueBuff",
-        "TFT14_NaafiriCyberneticItem",
-        "TFT_Item_BFSword",
-        "TFT_Item_WarmogsArmor",
-        "TFT14_SejuaniCyberneticItem",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_RedBuff",
-        "TFT_Item_Artifact_HorizonFocus",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_InfinityEdge",
-        "TFT14_ZeriCyberneticItem",
-        "TFT_Item_ChainVest",
-        "TFT_Item_PowerGauntlet"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 9,
       "gold_left": 0,
       "damage": 112,
       "traits": [
-        "TFT14_AnimaSquad_1",
-        "TFT14_Divinicorp_1",
-        "TFT14_Marksman_2",
-        "TFT14_Thirsty_1",
-        "TFT14_Vanguard_2"
+        "TFT15_Spellslinger_1",
+        "TFT15_StarGuardian_7"
       ],
       "items": [
+        "TFT_Item_WarmogsArmor",
         "TFT_Item_DragonsClaw",
         "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_SpectralGauntlet",
-        "TFT_Item_RedBuff",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_FrozenHeart",
-        "TFT_Item_Deathblade",
-        "TFT4_Item_OrnnMuramana",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_ArchangelsStaff"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
-      "level": 8,
-      "gold_left": 1,
-      "damage": 32,
-      "traits": [
-        "TFT14_Netgod_1",
-        "TFT14_Strong_1",
-        "TFT14_Suits_3",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_ZekesHerald",
-        "TFT_Item_ZekesHerald",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_UnstableTreasureChest",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_FrozenHeart",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_Artifact_Mittens",
-        "TFT_Item_SpearOfShojin"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 8,
-      "gold_left": 0,
-      "damage": 95,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Cutter_1",
-        "TFT14_EdgeRunner_3",
-        "TFT14_Thirsty_1"
-      ],
-      "items": [
-        "TFT14_JaxCyberneticItem",
-        "TFT_Item_TitansResolve",
-        "TFT14_NaafiriCyberneticItem",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_Leviathan",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_BrambleVest",
-        "TFT14_MordekaiserCyberneticItem",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_RunaansHurricane",
-        "TFT14_ZeriCyberneticItem",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_RecurveBow"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 9,
-      "gold_left": 1,
-      "damage": 152,
-      "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_Divinicorp_3",
-        "TFT14_Overlord_1",
-        "TFT14_Strong_3"
-      ],
-      "items": [
-        "TFT_Item_SpectralGauntlet",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_GuinsoosRageblade",
         "TFT_Item_HextechGunblade",
+        "TFT_Item_SpearOfShojin",
+        "TFT_Item_SpearOfShojin",
+        "TFT_Item_GuinsoosRageblade",
+        "TFT_Item_MadredsBloodrazor",
         "TFT_Item_InfinityEdge",
         "TFT_Item_AdaptiveHelm",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_InfinityEdge"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 8,
-      "gold_left": 0,
-      "damage": 137,
-      "traits": [
-        "TFT14_BallisTek_1",
-        "TFT14_Bruiser_1",
-        "TFT14_Controller_1",
-        "TFT14_Cyberboss_1",
-        "TFT14_Netgod_1"
-      ],
-      "items": [
-        "TFT_Item_Leviathan",
+        "TFT15_Item_StarGuardianEmblemItem",
         "TFT_Item_BlueBuff",
-        "TFT_Item_NeedlesslyLargeRod",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_IonicSpark",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_ChainVest",
-        "TFT14_Item_BruiserEmblemItem",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_InfinityEdge",
-        "TFT4_Item_OrnnZhonyasParadox",
-        "TFT_Item_RunaansHurricane"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 1,
-      "level": 9,
-      "gold_left": 7,
-      "damage": 201,
-      "traits": [
-        "TFT14_BallisTek_2",
-        "TFT14_Bruiser_1",
-        "TFT14_Controller_1",
-        "TFT14_Netgod_1",
-        "TFT14_StreetDemon_1",
-        "TFT14_Techie_1"
-      ],
-      "items": [
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_EmptyBag",
-        "TFT_Item_EmptyBag",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_SpearOfShojin",
-        "TFT5_Item_RapidFirecannonRadiant",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_RedBuff",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_Morellonomicon",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_RabadonsDeathcap"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 5,
-      "level": 8,
-      "gold_left": 2,
-      "damage": 84,
-      "traits": [
-        "TFT14_AnimaSquad_3",
-        "TFT14_Marksman_1",
-        "TFT14_Netgod_1",
-        "TFT14_Thirsty_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_Deathblade",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_ForceOfNature",
-        "TFT_Item_TitansResolve",
-        "TFT_Item_TearOfTheGoddess",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_UnstableConcoction",
-        "TFT_Item_Leviathan"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 8,
-      "gold_left": 1,
-      "damage": 99,
-      "traits": [
-        "TFT14_Controller_4",
-        "TFT14_Cyberboss_1",
-        "TFT14_StreetDemon_2",
-        "TFT14_Supercharge_1"
-      ],
-      "items": [
-        "TFT9_Item_OrnnHullbreaker",
-        "TFT_Item_RedBuff",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_UnstableTreasureChest",
-        "TFT_Item_GiantsBelt",
-        "TFT_Item_SpectralGauntlet",
-        "TFT14_Item_ControllerEmblemItem",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_SpearOfShojin",
-        "TFT4_Item_OrnnTheCollector",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_InfinityEdge"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 7,
-      "gold_left": 0,
-      "damage": 60,
-      "traits": [
-        "TFT14_Divinicorp_1",
-        "TFT14_Mob_2",
-        "TFT14_Strong_1",
-        "TFT14_Swift_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_FrozenHeart"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 8,
-      "level": 5,
-      "gold_left": 22,
-      "damage": 4,
-      "traits": [
-        "TFT14_AnimaSquad_1",
-        "TFT14_Cutter_1",
-        "TFT14_Divinicorp_1",
-        "TFT14_Immortal_1"
-      ],
-      "items": [
-        "TFT_Item_SpectralGauntlet",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_MadredsBloodrazor"
-      ],
-      "units_count": 5,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 9,
-      "gold_left": 0,
-      "damage": 162,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Bruiser_1",
-        "TFT14_EdgeRunner_2",
-        "TFT14_Netgod_1",
-        "TFT14_Supercharge_1",
-        "TFT14_Virus_1"
-      ],
-      "items": [
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_Leviathan",
-        "TFT_Item_UnstableConcoction",
-        "TFT_Item_InfinityEdge",
-        "TFT14_NaafiriCyberneticItem",
-        "TFT_Item_RedBuff",
-        "TFT14_JaxCyberneticItem",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_FrozenHeart",
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_TitansResolve",
-        "TFT_Item_GuardianAngel"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
-      "level": 9,
-      "gold_left": 0,
-      "damage": 66,
-      "traits": [
-        "TFT14_AnimaSquad_3",
-        "TFT14_Netgod_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_EternalFlame",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_Bloodthirster",
-        "TFT14_Item_DarkWebEmblemItem",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_MadredsBloodrazor"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
-      "level": 8,
-      "gold_left": 0,
-      "damage": 61,
-      "traits": [
-        "TFT14_AnimaSquad_1",
-        "TFT14_EdgeRunner_1",
-        "TFT14_Immortal_1",
-        "TFT14_Marksman_1",
-        "TFT14_Strong_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT14_Item_DarkWebEmblemItem",
-        "TFT_Item_RedBuff",
-        "TFT14_JaxCyberneticItem",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT14_Item_EdgeRunnerEmblemItem",
-        "TFT_Item_RunaansHurricane",
-        "TFT14_Item_StrongEmblemItem"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 7,
-      "gold_left": 2,
-      "damage": 71,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_HotRod_2",
-        "TFT14_Marksman_1",
-        "TFT14_Swift_1"
-      ],
-      "items": [
-        "TFT_Item_GuinsoosRageblade",
-        "TFT7_Item_ShimmerscaleGamblersBlade",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_Crownguard",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_RapidFireCannon",
-        "TFT_Item_TearOfTheGoddess",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT14_Item_Nitro_ChromeCounter"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 1,
-      "level": 8,
-      "gold_left": 8,
-      "damage": 154,
-      "traits": [
-        "TFT14_Immortal_2",
-        "TFT14_Marksman_1",
-        "TFT14_Vanguard_2"
-      ],
-      "items": [
-        "TFT14_Item_GuardianEmblemItem",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_RedBuff",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_RabadonsDeathcap",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_InfinityEdge"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 8,
-      "gold_left": 1,
-      "damage": 42,
-      "traits": [
-        "TFT14_Immortal_3",
-        "TFT14_Marksman_2",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_SteraksGage",
-        "TFT_Item_Artifact_TitanicHydra",
-        "TFT4_Item_OrnnDeathsDefiance",
-        "TFT_Item_FrozenHeart",
-        "TFT14_Item_StreetDemonEmblemItem",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_TearOfTheGoddess",
-        "TFT14_Item_ImmortalEmblemItem",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_RunaansHurricane"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 8,
-      "gold_left": 1,
-      "damage": 49,
-      "traits": [
-        "TFT14_Armorclad_3",
-        "TFT14_Cyberboss_3",
-        "TFT14_Techie_1"
-      ],
-      "items": [
-        "TFT_Item_AegisOfTheLegion",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_TitansResolve",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_GiantsBelt",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_StatikkShiv",
-        "TFT_Item_Leviathan",
-        "TFT14_Item_ArmorcladEmblemItem"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 5,
-      "level": 9,
-      "gold_left": 1,
-      "damage": 119,
-      "traits": [
-        "TFT14_Bruiser_3",
-        "TFT14_Divinicorp_1",
-        "TFT14_Netgod_1",
-        "TFT14_StreetDemon_1",
-        "TFT14_Techie_1",
-        "TFT14_Virus_1"
-      ],
-      "items": [
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_Redemption",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_Leviathan",
-        "TFT5_Item_SpearOfShojinRadiant",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_RapidFireCannon",
-        "TFT_Item_Redemption",
-        "TFT14_Item_BruiserEmblemItem",
-        "TFT_Item_RedBuff",
-        "TFT_Item_IonicSpark",
-        "TFT_Item_AdaptiveHelm"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 8,
-      "gold_left": 1,
-      "damage": 148,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_EdgeRunner_3",
-        "TFT14_Thirsty_1"
-      ],
-      "items": [
-        "TFT_Item_SteraksGage",
-        "TFT_Item_JeweledGauntlet",
-        "TFT14_VarusCyberneticItem",
-        "TFT_Item_Artifact_UnendingDespair",
-        "TFT7_Item_ShimmerscaleMogulsMail",
-        "TFT_Item_SpectralGauntlet",
-        "TFT14_Item_EdgeRunnerEmblemItem",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_Crownguard",
-        "TFT14_SejuaniCyberneticItem",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT14_ZeriCyberneticItem",
-        "TFT_Item_RunaansHurricane"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 8,
-      "gold_left": 6,
-      "damage": 26,
-      "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_Immortal_2",
-        "TFT14_Marksman_1",
-        "TFT14_Netgod_1"
-      ],
-      "items": [
-        "TFT_Item_NightHarvester",
-        "TFT_Item_SpectralGauntlet",
-        "TFT_Item_GiantsBelt",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_InfinityEdge"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 8,
-      "gold_left": 3,
-      "damage": 116,
-      "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_Divinicorp_2",
-        "TFT14_Immortal_3",
-        "TFT14_Strong_1",
-        "TFT14_Techie_1",
-        "TFT14_Vanguard_1",
-        "TFT14_ViegoUniqueTrait_1"
-      ],
-      "items": [
-        "TFT_Item_BrambleVest",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_SpectralGauntlet",
-        "TFT14_Item_ImmortalEmblemItem",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_IonicSpark",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_RedBuff",
-        "TFT4_Item_OrnnMuramana",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_Leviathan",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_Crownguard",
-        "TFT_Item_FrozenHeart",
-        "TFT_Item_DragonsClaw"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
-      "level": 9,
-      "gold_left": 1,
-      "damage": 130,
-      "traits": [
-        "TFT14_AnimaSquad_3",
-        "TFT14_Armorclad_1",
-        "TFT14_Vanguard_1",
-        "TFT14_Virus_1"
-      ],
-      "items": [
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_NeedlesslyLargeRod",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_Morellonomicon",
-        "TFT_Item_RedBuff",
-        "TFT_Item_Leviathan",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_SpearOfShojin"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 8,
-      "gold_left": 4,
-      "damage": 69,
-      "traits": [
-        "TFT14_AnimaSquad_3",
-        "TFT14_Divinicorp_1",
-        "TFT14_Marksman_1",
-        "TFT14_Netgod_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_AdaptiveHelm",
-        "TFT7_Item_ShimmerscaleMogulsMail",
-        "TFT_Item_Redemption",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_WarmogsArmor"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 9,
-      "gold_left": 1,
-      "damage": 188,
-      "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_Controller_1",
-        "TFT14_EdgeRunner_1",
-        "TFT14_Supercharge_4"
-      ],
-      "items": [
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_SteraksGage",
-        "TFT14_JhinCyberneticItem",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_Artifact_LightshieldCrest",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_NeedlesslyLargeRod",
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_UnstableConcoction",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_Quicksilver",
-        "TFT14_Item_ControllerEmblemItem",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_GiantsBelt"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 5,
-      "level": 8,
-      "gold_left": 1,
-      "damage": 83,
-      "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_EdgeRunner_3",
-        "TFT14_Netgod_1"
-      ],
-      "items": [
-        "TFT14_Item_EdgeRunnerEmblemItem",
-        "TFT14_NaafiriCyberneticItem",
-        "TFT_Item_Deathblade",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_ZekesHerald",
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT14_JhinCyberneticItem",
-        "TFT_Item_Deathblade",
-        "TFT14_Item_EdgeRunnerEmblemItem",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_Bloodthirster",
-        "TFT14_Item_EdgeRunnerEmblemItem",
-        "TFT_Item_DragonsClaw",
-        "TFT14_SejuaniCyberneticItem"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 8,
-      "gold_left": 0,
-      "damage": 143,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Divinicorp_1",
-        "TFT14_HotRod_2",
-        "TFT14_Marksman_1",
-        "TFT14_Thirsty_3"
-      ],
-      "items": [
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_Redemption",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_SteraksGage",
-        "TFT5_Item_ArchangelsStaffRadiant",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_Leviathan",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_Crownguard",
-        "TFT_Item_NightHarvester",
-        "TFT14_Item_Nitro_ChromeCounter"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 7,
-      "level": 8,
-      "gold_left": 3,
-      "damage": 53,
-      "traits": [
-        "TFT14_BallisTek_2",
-        "TFT14_Bruiser_1",
-        "TFT14_Vanguard_2"
-      ],
-      "items": [
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT5_Item_GargoyleStoneplateRadiant",
-        "TFT_Item_SpectralGauntlet",
-        "TFT_Item_TitansResolve",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_TearOfTheGoddess",
-        "TFT_Item_ForceOfNature",
-        "TFT7_Item_ShimmerscaleGamblersBlade",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_UnstableConcoction"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 7,
-      "gold_left": 1,
-      "damage": 56,
-      "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_StreetDemon_2",
-        "TFT14_Techie_1"
-      ],
-      "items": [
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_RunaansHurricane",
-        "TFT9_Item_OrnnHullbreaker",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_RedBuff",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_RabadonsDeathcap"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 8,
-      "gold_left": 2,
-      "damage": 120,
-      "traits": [
-        "TFT14_AnimaSquad_3",
-        "TFT14_Marksman_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_Artifact_InnervatingLocket",
-        "TFT_Item_WarmogsArmor"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 9,
-      "gold_left": 0,
-      "damage": 146,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Bruiser_1",
-        "TFT14_Cutter_1",
-        "TFT14_Divinicorp_4",
-        "TFT14_Netgod_1",
-        "TFT14_Overlord_1",
-        "TFT14_Virus_1"
-      ],
-      "items": [
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_StatikkShiv",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT14_Item_ArmorcladEmblemItem",
-        "TFT_Item_Crownguard",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_Crownguard"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 8,
-      "gold_left": 8,
-      "damage": 91,
-      "traits": [
-        "TFT14_AnimaSquad_3",
-        "TFT14_Armorclad_1",
-        "TFT14_Controller_1",
-        "TFT14_StreetDemon_1",
-        "TFT14_Strong_1",
-        "TFT14_Supercharge_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_Deathblade",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_Leviathan",
-        "TFT_Item_StatikkShiv",
-        "TFT_Item_TearOfTheGoddess",
-        "TFT14_Item_DarkWebEmblemItem",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_InfinityEdge"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 7,
-      "gold_left": 6,
-      "damage": 125,
-      "traits": [
-        "TFT14_Controller_1",
-        "TFT14_Cyberboss_1",
-        "TFT14_Netgod_1",
-        "TFT14_Suits_2"
-      ],
-      "items": [
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_RapidFireCannon",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_Bloodthirster",
-        "TFT5_Item_GargoyleStoneplateRadiant",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_IonicSpark",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_UnstableConcoction",
-        "TFT_Item_Crownguard"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 7,
-      "level": 7,
-      "gold_left": 7,
-      "damage": 56,
-      "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_Immortal_2",
-        "TFT14_Vanguard_1",
-        "TFT14_Virus_1"
-      ],
-      "items": [
-        "TFT_Item_SteraksGage",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_RedBuff",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_TitansResolve",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_StatikkShiv"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 8,
-      "gold_left": 5,
-      "damage": 133,
-      "traits": [
-        "TFT14_Armorclad_2",
-        "TFT14_Divinicorp_2",
-        "TFT14_Netgod_1",
-        "TFT14_Overlord_1",
-        "TFT14_Thirsty_3"
-      ],
-      "items": [
-        "TFT_Item_StatikkShiv",
-        "TFT_Item_RabadonsDeathcap",
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_SparringGloves",
-        "TFT_Item_Morellonomicon",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_AdaptiveHelm",
-        "TFT14_Item_ThirstyEmblemItem",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_InfinityEdge"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
-      "level": 8,
-      "gold_left": 2,
-      "damage": 97,
-      "traits": [
-        "TFT14_BallisTek_1",
-        "TFT14_Mob_2",
-        "TFT14_Thirsty_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_LastWhisper",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_RedBuff",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_Redemption",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_NeedlesslyLargeRod"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 5,
-      "level": 7,
-      "gold_left": 0,
-      "damage": 98,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Divinicorp_4",
-        "TFT14_Overlord_1",
-        "TFT14_Thirsty_2"
-      ],
-      "items": [
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_Leviathan",
-        "TFT_Item_Morellonomicon",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_RecurveBow",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_SpectralGauntlet",
-        "TFT_Item_RedBuff"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 8,
-      "gold_left": 2,
-      "damage": 193,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_HotRod_2",
-        "TFT14_Thirsty_2"
-      ],
-      "items": [
-        "TFT_Item_BrambleVest",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_RedBuff",
-        "TFT_Item_AdaptiveHelm",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_IonicSpark",
-        "TFT_Item_Leviathan",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_StatikkShiv",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_SparringGloves",
-        "TFT_Item_SpearOfShojin",
-        "TFT14_Item_Nitro_ChromeCounter"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
-      "level": 7,
-      "gold_left": 1,
-      "damage": 85,
-      "traits": [
-        "TFT14_Mob_2",
-        "TFT14_Netgod_1",
-        "TFT14_Strong_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_RapidFireCannon",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_Redemption",
-        "TFT_Item_DragonsClaw",
-        "TFT5_Item_ThiefsGlovesRadiant",
-        "TFT5_Item_BlueBuffRadiant",
-        "TFT5_Item_GuardianAngelRadiant",
-        "TFT14_Item_MobEmblemItem",
-        "TFT_Item_SteraksGage",
-        "TFT14_Item_StrongEmblemItem"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 8,
-      "gold_left": 1,
-      "damage": 118,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Bruiser_1",
-        "TFT14_Cyberboss_3",
-        "TFT14_Techie_3"
-      ],
-      "items": [
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_NightHarvester",
-        "TFT14_Item_TechieEmblemItem",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_Leviathan",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_GiantsBelt",
-        "TFT_Item_RabadonsDeathcap",
-        "TFT_Item_StatikkShiv"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 6,
-      "gold_left": 1,
-      "damage": 89,
-      "traits": [
-        "TFT14_Controller_4",
-        "TFT14_Suits_1"
-      ],
-      "items": [
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_RedBuff",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_Leviathan",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_AdaptiveHelm"
-      ],
-      "units_count": 6,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
-      "level": 9,
-      "gold_left": 2,
-      "damage": 86,
-      "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_Divinicorp_1",
-        "TFT14_Immortal_1",
-        "TFT14_Mob_1",
-        "TFT14_Strong_3"
-      ],
-      "items": [
-        "TFT_Item_RedBuff",
-        "TFT_Item_Redemption",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_Artifact_LudensTempest",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_Morellonomicon",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_BlueBuff"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 5,
-      "level": 7,
-      "gold_left": 0,
-      "damage": 72,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Cutter_1",
-        "TFT14_Divinicorp_1",
-        "TFT14_EdgeRunner_3"
-      ],
-      "items": [
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_RedBuff",
-        "TFT_Item_ZekesHerald",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_BFSword",
-        "TFT14_VarusCyberneticItem",
-        "TFT_Item_RabadonsDeathcap",
-        "TFT_Item_ArchangelsStaff",
-        "TFT14_Item_EdgeRunnerEmblemItem",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT14_SejuaniCyberneticItem",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_MadredsBloodrazor"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 5,
-      "level": 9,
-      "gold_left": 4,
-      "damage": 85,
-      "traits": [
-        "TFT14_Controller_4",
-        "TFT14_Marksman_2",
-        "TFT14_Netgod_1",
-        "TFT14_StreetDemon_1"
-      ],
-      "items": [
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_RedBuff",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT5_Item_ThiefsGlovesRadiant",
-        "TFT5_Item_InfinityEdgeRadiant",
-        "TFT5_Item_MorellonomiconRadiant",
-        "TFT_Item_HextechGunblade",
-        "TFT_Item_WarmogsArmor"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 5,
-      "level": 8,
-      "gold_left": 2,
-      "damage": 127,
-      "traits": [
-        "TFT14_Bruiser_2",
-        "TFT14_Divinicorp_2",
-        "TFT14_Overlord_1",
-        "TFT14_Techie_1"
-      ],
-      "items": [
-        "TFT_Item_FrozenHeart",
-        "TFT4_Item_OrnnRanduinsSanctum",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_StatikkShiv",
-        "TFT_Item_Morellonomicon",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_Morellonomicon",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_Deathblade",
-        "TFT_Item_RapidFireCannon",
-        "TFT_Item_TitansResolve",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_RedBuff"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 3,
-      "level": 8,
-      "gold_left": 2,
-      "damage": 173,
-      "traits": [
-        "TFT14_Immortal_3",
-        "TFT14_Marksman_1",
-        "TFT14_Supercharge_1",
-        "TFT14_Vanguard_1",
-        "TFT14_ViegoUniqueTrait_1"
-      ],
-      "items": [
-        "TFT14_Item_ImmortalEmblemItem",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_SpectralGauntlet",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_Leviathan",
-        "TFT_Item_StatikkShiv",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_Leviathan",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_RedBuff",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_MadredsBloodrazor"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 8,
-      "gold_left": 1,
-      "damage": 177,
-      "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_Controller_1",
-        "TFT14_StreetDemon_2",
-        "TFT14_Strong_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_RedBuff",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_GiantsBelt",
-        "TFT_Item_Redemption",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_Morellonomicon",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_LastWhisper",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_StatikkShiv",
-        "TFT_Item_WarmogsArmor"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 5,
-      "level": 8,
-      "gold_left": 0,
-      "damage": 88,
-      "traits": [
-        "TFT14_AnimaSquad_2",
-        "TFT14_Vanguard_2"
-      ],
-      "items": [
-        "TFT_Item_BrambleVest",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT5_Item_RedemptionRadiant",
-        "TFT_Item_RapidFireCannon",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GuinsoosRageblade"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 7,
-      "level": 7,
-      "gold_left": 2,
-      "damage": 51,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_EdgeRunner_3"
-      ],
-      "items": [
-        "TFT_Item_FrozenHeart",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_SpectralGauntlet",
-        "TFT_Item_RapidFireCannon",
-        "TFT14_NaafiriCyberneticItem",
-        "TFT_Item_PowerGauntlet",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_Redemption",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT14_SejuaniCyberneticItem",
-        "TFT_Item_Artifact_SeekersArmguard",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT14_VarusCyberneticItem",
-        "TFT_Item_InfinityEdge"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 9,
-      "gold_left": 1,
-      "damage": 127,
-      "traits": [
-        "TFT14_Bruiser_3",
-        "TFT14_Divinicorp_1",
-        "TFT14_Mob_2",
-        "TFT14_Swift_1"
-      ],
-      "items": [
-        "TFT_Item_StatikkShiv",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_BFSword",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_RedBuff",
-        "TFT_Item_Redemption",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_WarmogsArmor"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 9,
-      "gold_left": 0,
-      "damage": 69,
-      "traits": [
-        "TFT14_Controller_1",
-        "TFT14_Immortal_1",
-        "TFT14_StreetDemon_2",
-        "TFT14_Strong_1",
-        "TFT14_Supercharge_3"
-      ],
-      "items": [
-        "TFT_Item_LastWhisper",
-        "TFT_Item_BFSword",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_RedBuff",
-        "TFT14_Item_StreetDemonEmblemItem",
-        "TFT_Item_Leviathan",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_RapidFireCannon",
-        "TFT_Item_InfinityEdge",
         "TFT_Item_Bloodthirster"
       ],
+      "units_count": 8,
+      "game_mode": "Solo"
+    },
+    {
+      "placement": 3,
+      "level": 9,
+      "gold_left": 1,
+      "damage": 126,
+      "traits": [
+        "TFT15_Empyrean_1",
+        "TFT15_OldMentor_1",
+        "TFT15_Protector_1",
+        "TFT15_Sniper_3",
+        "TFT15_Strategist_2",
+        "TFT15_TheCrew_7"
+      ],
+      "items": [
+        "TFT_Item_InfinityEdge",
+        "TFT_Item_RunaansHurricane",
+        "TFT_Item_Bloodthirster",
+        "TFT_Item_RedBuff",
+        "TFT_Item_Redemption",
+        "TFT_Item_NightHarvester",
+        "TFT_Item_RabadonsDeathcap",
+        "TFT_Item_JeweledGauntlet",
+        "TFT_Item_Morellonomicon"
+      ],
       "units_count": 9,
       "game_mode": "Solo"
     },
     {
-      "placement": 5,
+      "placement": 2,
+      "level": 8,
+      "gold_left": 0,
+      "damage": 125,
+      "traits": [
+        "TFT15_Bastion_1",
+        "TFT15_ElTigre_1",
+        "TFT15_OldMentor_1",
+        "TFT15_StarGuardian_2",
+        "TFT15_Strategist_1"
+      ],
+      "items": [
+        "TFT_Item_Redemption",
+        "TFT_Item_MadredsBloodrazor",
+        "TFT_Item_RunaansHurricane",
+        "TFT_Item_InfinityEdge",
+        "TFT_Item_IonicSpark",
+        "TFT_Item_IonicSpark",
+        "TFT_Item_RedBuff",
+        "TFT_Item_ThiefsGloves",
+        "TFT_Item_AdaptiveHelm",
+        "TFT_Item_PowerGauntlet",
+        "TFT_Item_ThiefsGloves",
+        "TFT_Item_TitansResolve",
+        "TFT_Item_MadredsBloodrazor",
+        "TFT_Item_SpearOfShojin",
+        "TFT_Item_JeweledGauntlet",
+        "TFT_Item_AdaptiveHelm",
+        "TFT_Item_GuardianAngel"
+      ],
+      "units_count": 8,
+      "game_mode": "Solo"
+    },
+    {
+      "placement": 7,
       "level": 8,
       "gold_left": 4,
-      "damage": 91,
+      "damage": 56,
       "traits": [
-        "TFT14_Mob_1",
-        "TFT14_Swift_2",
-        "TFT14_Virus_1"
+        "TFT15_Bastion_1",
+        "TFT15_BattleAcademia_3",
+        "TFT15_DragonFist_1",
+        "TFT15_Sniper_1"
       ],
       "items": [
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_IonicSpark",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_RedBuff",
-        "TFT_Item_TitansResolve",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_BFSword",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_Redemption"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 7,
-      "gold_left": 1,
-      "damage": 45,
-      "traits": [
-        "TFT14_BallisTek_1",
-        "TFT14_Bruiser_2",
-        "TFT14_Techie_1"
-      ],
-      "items": [
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_RedBuff",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_ArchangelsStaff",
-        "TFT14_Item_BruiserEmblemItem"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 9,
-      "gold_left": 6,
-      "damage": 189,
-      "traits": [
-        "TFT14_Bruiser_1",
-        "TFT14_Controller_1",
-        "TFT14_Cutter_1",
-        "TFT14_Netgod_1",
-        "TFT14_StreetDemon_3"
-      ],
-      "items": [
+        "TFT15_Item_CrystalRoseEmblemItem",
         "TFT_Item_NightHarvester",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_RedBuff",
-        "TFT_Item_Crownguard",
-        "TFT_Item_ChainVest",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_Quicksilver",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_InfinityEdge",
+        "TFT15_Item_BattleAcademiaEmblemItem",
         "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_Deathblade",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT14_Item_StreetDemonEmblemItem",
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_StatikkShiv",
-        "TFT_Item_Leviathan"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 8,
-      "level": 7,
-      "gold_left": 27,
-      "damage": 27,
-      "traits": [
-        "TFT14_Immortal_3",
-        "TFT14_Marksman_1",
-        "TFT14_ViegoUniqueTrait_1"
-      ],
-      "items": [
-        "TFT_Item_LastWhisper",
+        "TFT_Item_RunaansHurricane",
+        "TFT_Item_WarmogsArmor",
         "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_RedBuff",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_JeweledGauntlet",
-        "TFT_Item_InfinityEdge",
-        "TFT4_Item_OrnnTheCollector",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_RapidFireCannon",
+        "TFT_Item_Artifact_LightshieldCrest",
+        "TFT_Item_PowerGauntlet",
         "TFT_Item_HextechGunblade",
-        "TFT_Item_SpectralGauntlet"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 9,
-      "gold_left": 18,
-      "damage": 80,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Divinicorp_1",
-        "TFT14_Overlord_1",
-        "TFT14_Strong_1",
-        "TFT14_Suits_3",
-        "TFT14_Swift_1",
-        "TFT14_Vanguard_1",
-        "TFT14_Virus_1"
-      ],
-      "items": [
-        "TFT_Item_SupportKnightsVow",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_Deathblade",
-        "TFT_Item_InfinityEdge",
-        "TFT5_Item_IonicSparkRadiant",
-        "TFT_Item_ThiefsGloves",
-        "TFT_Item_RedBuff",
-        "TFT_Item_UnstableConcoction",
-        "TFT_Item_GuardianAngel",
-        "TFT5_Item_HandOfJusticeRadiant",
-        "TFT_Item_BlueBuff",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_SpectralGauntlet",
-        "TFT_Item_UnstableConcoction",
-        "TFT_Item_SteraksGage"
-      ],
-      "units_count": 9,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 2,
-      "level": 8,
-      "gold_left": 0,
-      "damage": 95,
-      "traits": [
-        "TFT14_AnimaSquad_3",
-        "TFT14_Immortal_1",
-        "TFT14_Marksman_1",
-        "TFT14_Vanguard_1"
-      ],
-      "items": [
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_Bloodthirster",
-        "TFT_Item_Deathblade",
-        "TFT_Item_GargoyleStoneplate",
-        "TFT_Item_RedBuff",
-        "TFT_Item_BrambleVest",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_JeweledGauntlet"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 8,
-      "gold_left": 0,
-      "damage": 37,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_Bruiser_1",
-        "TFT14_Cyberboss_3",
-        "TFT14_Techie_3"
-      ],
-      "items": [
-        "TFT_Item_DragonsClaw",
-        "TFT5_Item_GargoyleStoneplateRadiant",
-        "TFT_Item_IonicSpark",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_StatikkShiv",
-        "TFT14_Item_ArmorcladEmblemItem",
-        "TFT4_Item_OrnnMuramana",
-        "TFT14_Item_TechieEmblemItem",
-        "TFT5_Item_SpearOfShojinRadiant",
-        "TFT14_Item_TechieEmblemItem",
-        "TFT_Item_Crownguard"
-      ],
-      "units_count": 8,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 6,
-      "level": 7,
-      "gold_left": 6,
-      "damage": 42,
-      "traits": [
-        "TFT14_Mob_2",
-        "TFT14_Strong_1",
-        "TFT14_Vanguard_1",
-        "TFT14_Virus_1"
-      ],
-      "items": [
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_GuardianAngel",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_Leviathan",
-        "TFT_Item_DragonsClaw",
-        "TFT_Item_Redemption",
-        "TFT_Item_WarmogsArmor",
-        "TFT_Item_MadredsBloodrazor",
-        "TFT_Item_RunaansHurricane",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_Crownguard"
-      ],
-      "units_count": 7,
-      "game_mode": "Solo"
-    },
-    {
-      "placement": 4,
-      "level": 7,
-      "gold_left": 0,
-      "damage": 55,
-      "traits": [
-        "TFT14_Armorclad_1",
-        "TFT14_EdgeRunner_3",
-        "TFT14_Swift_1"
-      ],
-      "items": [
-        "TFT_Item_RedBuff",
-        "TFT_Item_SpectralGauntlet",
-        "TFT_Item_NightHarvester",
-        "TFT_Item_SpearOfShojin",
-        "TFT_Item_InfinityEdge",
-        "TFT_Item_Moonstone",
-        "TFT14_SejuaniCyberneticItem",
-        "TFT_Item_SteraksGage",
-        "TFT_Item_TitansResolve",
-        "TFT_Item_ArchangelsStaff",
-        "TFT_Item_WarmogsArmor",
-        "TFT14_MordekaiserCyberneticItem",
-        "TFT14_NaafiriCyberneticItem",
-        "TFT_Item_GuinsoosRageblade",
-        "TFT_Item_RunaansHurricane"
+        "TFT_Item_MadredsBloodrazor"
       ],
       "units_count": 8,
       "game_mode": "Solo"
     }
   ],
   "summary": {
-    "avg_placement": 4.19,
-    "avg_level": 7.93,
-    "avg_gold_left": 3.6,
-    "win_rate": 5.3,
-    "top4_rate": 57.3,
-    "top2_rate": 22.7,
+    "avg_placement": 4.62,
+    "avg_level": 8.25,
+    "avg_gold_left": 4.4,
+    "win_rate": 12.5,
+    "top4_rate": 50.0,
+    "top2_rate": 25.0,
     "placements": [
-      2,
-      4,
       6,
-      3,
-      7,
-      6,
-      4,
-      4,
-      4,
       1,
-      7,
-      1,
-      4,
-      7,
-      2,
-      6,
-      3,
-      4,
-      6,
-      3,
-      3,
-      1,
-      5,
-      2,
       6,
       8,
-      2,
-      4,
-      4,
-      6,
-      1,
-      6,
-      6,
-      5,
-      3,
-      6,
-      3,
-      4,
-      2,
-      2,
-      5,
-      2,
-      7,
-      6,
-      3,
-      3,
-      3,
-      3,
-      7,
-      3,
-      4,
-      5,
-      2,
       4,
       3,
-      6,
-      4,
-      5,
-      5,
-      5,
-      3,
       2,
-      5,
-      7,
-      2,
-      6,
-      5,
-      6,
-      2,
-      8,
-      2,
-      2,
-      6,
-      6,
-      4
+      7
     ]
   },
   "items": {
-    "TFT_Item_Redemption": {
-      "games": 16,
-      "avg_placement": 3.56,
-      "win_rate": 6.2,
-      "top4_rate": 68.8
-    },
-    "TFT_Item_GargoyleStoneplate": {
-      "games": 56,
-      "avg_placement": 4.11,
-      "win_rate": 7.1,
-      "top4_rate": 58.9
-    },
-    "TFT_Item_RedBuff": {
-      "games": 43,
-      "avg_placement": 4.02,
-      "win_rate": 7.0,
-      "top4_rate": 58.1
-    },
-    "TFT_Item_Leviathan": {
-      "games": 24,
-      "avg_placement": 3.71,
-      "win_rate": 4.2,
-      "top4_rate": 66.7
-    },
-    "TFT_Item_ArchangelsStaff": {
-      "games": 19,
-      "avg_placement": 4.53,
+    "TFT_Item_DragonsClaw": {
+      "games": 2,
+      "avg_placement": 5.0,
       "win_rate": 0.0,
-      "top4_rate": 47.4
-    },
-    "TFT_Item_JeweledGauntlet": {
-      "games": 23,
-      "avg_placement": 4.13,
-      "win_rate": 8.7,
-      "top4_rate": 56.5
-    },
-    "TFT_Item_LastWhisper": {
-      "games": 21,
-      "avg_placement": 3.57,
-      "win_rate": 19.0,
-      "top4_rate": 71.4
-    },
-    "TFT_Item_InfinityEdge": {
-      "games": 55,
-      "avg_placement": 3.96,
-      "win_rate": 9.1,
-      "top4_rate": 65.5
-    },
-    "TFT_Item_SteraksGage": {
-      "games": 22,
-      "avg_placement": 3.5,
-      "win_rate": 4.5,
-      "top4_rate": 72.7
-    },
-    "TFT_Item_NightHarvester": {
-      "games": 18,
-      "avg_placement": 3.83,
-      "win_rate": 5.6,
-      "top4_rate": 55.6
-    },
-    "TFT_Item_GiantsBelt": {
-      "games": 8,
-      "avg_placement": 3.75,
-      "win_rate": 0.0,
-      "top4_rate": 62.5
-    },
-    "TFT_Item_GuinsoosRageblade": {
-      "games": 59,
-      "avg_placement": 4.41,
-      "win_rate": 6.8,
-      "top4_rate": 52.5
-    },
-    "TFT_Item_StatikkShiv": {
-      "games": 15,
-      "avg_placement": 3.53,
-      "win_rate": 0.0,
-      "top4_rate": 73.3
-    },
-    "TFT14_Item_Nitro_ChromeCounter": {
-      "games": 5,
-      "avg_placement": 3.2,
-      "win_rate": 0.0,
-      "top4_rate": 80.0
-    },
-    "TFT14_NaafiriCyberneticItem": {
-      "games": 7,
-      "avg_placement": 4.86,
-      "win_rate": 0.0,
-      "top4_rate": 42.9
-    },
-    "TFT14_MordekaiserCyberneticItem": {
-      "games": 4,
-      "avg_placement": 4.0,
-      "win_rate": 0.0,
-      "top4_rate": 75.0
-    },
-    "TFT_Item_FrozenHeart": {
-      "games": 11,
-      "avg_placement": 4.45,
-      "win_rate": 0.0,
-      "top4_rate": 54.5
-    },
-    "TFT_Item_SpearOfShojin": {
-      "games": 40,
-      "avg_placement": 3.4,
-      "win_rate": 7.5,
-      "top4_rate": 77.5
-    },
-    "TFT_Item_GuardianAngel": {
-      "games": 15,
-      "avg_placement": 3.73,
-      "win_rate": 6.7,
-      "top4_rate": 66.7
+      "top4_rate": 50.0
     },
     "TFT_Item_MadredsBloodrazor": {
-      "games": 25,
-      "avg_placement": 3.92,
-      "win_rate": 8.0,
-      "top4_rate": 64.0
+      "games": 8,
+      "avg_placement": 3.0,
+      "win_rate": 37.5,
+      "top4_rate": 75.0
     },
-    "TFT_Item_PowerGauntlet": {
-      "games": 14,
-      "avg_placement": 3.93,
-      "win_rate": 14.3,
-      "top4_rate": 64.3
-    },
-    "TFT_Item_Bloodthirster": {
-      "games": 21,
-      "avg_placement": 4.1,
-      "win_rate": 9.5,
-      "top4_rate": 61.9
-    },
-    "TFT_Item_RunaansHurricane": {
-      "games": 31,
-      "avg_placement": 4.42,
-      "win_rate": 6.5,
-      "top4_rate": 54.8
-    },
-    "TFT_Item_WarmogsArmor": {
-      "games": 41,
-      "avg_placement": 4.07,
-      "win_rate": 4.9,
-      "top4_rate": 58.5
-    },
-    "TFT_Item_SpectralGauntlet": {
-      "games": 17,
-      "avg_placement": 4.47,
-      "win_rate": 0.0,
-      "top4_rate": 58.8
-    },
-    "TFT_Item_SparringGloves": {
-      "games": 5,
-      "avg_placement": 4.8,
-      "win_rate": 0.0,
-      "top4_rate": 40.0
-    },
-    "TFT_Item_ThiefsGloves": {
-      "games": 25,
-      "avg_placement": 3.72,
-      "win_rate": 12.0,
-      "top4_rate": 60.0
+    "TFT_Item_SpearOfShojin": {
+      "games": 6,
+      "avg_placement": 3.0,
+      "win_rate": 33.3,
+      "top4_rate": 83.3
     },
     "TFT_Item_UnstableConcoction": {
-      "games": 12,
-      "avg_placement": 3.92,
-      "win_rate": 0.0,
-      "top4_rate": 66.7
-    },
-    "TFT_Item_Crownguard": {
-      "games": 13,
-      "avg_placement": 4.15,
-      "win_rate": 0.0,
-      "top4_rate": 61.5
-    },
-    "TFT_Item_DragonsClaw": {
-      "games": 31,
-      "avg_placement": 4.23,
-      "win_rate": 6.5,
-      "top4_rate": 54.8
-    },
-    "TFT_Item_Morellonomicon": {
-      "games": 11,
-      "avg_placement": 3.45,
-      "win_rate": 9.1,
-      "top4_rate": 72.7
-    },
-    "TFT_Item_HextechGunblade": {
-      "games": 15,
-      "avg_placement": 4.07,
-      "win_rate": 13.3,
-      "top4_rate": 60.0
-    },
-    "TFT_Item_IonicSpark": {
-      "games": 9,
-      "avg_placement": 3.44,
-      "win_rate": 11.1,
-      "top4_rate": 66.7
-    },
-    "TFT_Item_BlueBuff": {
-      "games": 23,
-      "avg_placement": 4.22,
-      "win_rate": 4.3,
-      "top4_rate": 56.5
-    },
-    "TFT_Item_TitansResolve": {
-      "games": 11,
-      "avg_placement": 5.45,
-      "win_rate": 0.0,
-      "top4_rate": 18.2
-    },
-    "TFT_Item_BFSword": {
-      "games": 6,
-      "avg_placement": 5.17,
-      "win_rate": 0.0,
-      "top4_rate": 16.7
-    },
-    "TFT_Item_AdaptiveHelm": {
-      "games": 18,
-      "avg_placement": 3.89,
-      "win_rate": 0.0,
-      "top4_rate": 72.2
-    },
-    "TFT_Item_RabadonsDeathcap": {
-      "games": 9,
-      "avg_placement": 3.11,
-      "win_rate": 33.3,
-      "top4_rate": 66.7
-    },
-    "TFT_Item_Quicksilver": {
-      "games": 14,
-      "avg_placement": 3.79,
-      "win_rate": 0.0,
-      "top4_rate": 71.4
-    },
-    "TFT4_Item_OrnnRanduinsSanctum": {
-      "games": 2,
-      "avg_placement": 5.5,
-      "win_rate": 0.0,
-      "top4_rate": 0.0
-    },
-    "TFT_Item_ChainVest": {
-      "games": 6,
-      "avg_placement": 5.17,
-      "win_rate": 0.0,
-      "top4_rate": 33.3
-    },
-    "TFT_Item_Deathblade": {
-      "games": 10,
-      "avg_placement": 3.6,
-      "win_rate": 0.0,
-      "top4_rate": 60.0
-    },
-    "TFT_Item_BrambleVest": {
-      "games": 26,
-      "avg_placement": 4.0,
-      "win_rate": 3.8,
-      "top4_rate": 53.8
-    },
-    "TFT4_Item_OrnnTheCollector": {
-      "games": 4,
-      "avg_placement": 5.25,
-      "win_rate": 0.0,
-      "top4_rate": 50.0
-    },
-    "TFT14_Item_TechieEmblemItem": {
-      "games": 5,
-      "avg_placement": 4.6,
-      "win_rate": 20.0,
-      "top4_rate": 40.0
-    },
-    "TFT14_Item_DarkWebEmblemItem": {
-      "games": 4,
-      "avg_placement": 3.75,
-      "win_rate": 0.0,
-      "top4_rate": 100.0
-    },
-    "TFT14_SejuaniCyberneticItem": {
-      "games": 7,
-      "avg_placement": 4.57,
-      "win_rate": 0.0,
-      "top4_rate": 42.9
-    },
-    "TFT14_ZeriCyberneticItem": {
-      "games": 4,
-      "avg_placement": 4.25,
-      "win_rate": 0.0,
-      "top4_rate": 50.0
-    },
-    "TFT14_Item_EdgeRunnerEmblemItem": {
-      "games": 7,
-      "avg_placement": 4.14,
-      "win_rate": 0.0,
-      "top4_rate": 42.9
-    },
-    "TFT_Item_RapidFireCannon": {
-      "games": 10,
-      "avg_placement": 5.1,
-      "win_rate": 0.0,
-      "top4_rate": 30.0
-    },
-    "TFT4_Item_OrnnMuramana": {
-      "games": 3,
-      "avg_placement": 4.0,
-      "win_rate": 0.0,
-      "top4_rate": 66.7
-    },
-    "TFT_Item_ZekesHerald": {
-      "games": 4,
-      "avg_placement": 4.5,
-      "win_rate": 0.0,
-      "top4_rate": 50.0
-    },
-    "TFT_Item_UnstableTreasureChest": {
-      "games": 2,
-      "avg_placement": 3.0,
-      "win_rate": 0.0,
-      "top4_rate": 100.0
-    },
-    "TFT14_JaxCyberneticItem": {
-      "games": 3,
-      "avg_placement": 4.0,
-      "win_rate": 0.0,
-      "top4_rate": 66.7
-    },
-    "TFT_Item_RecurveBow": {
-      "games": 2,
-      "avg_placement": 5.5,
-      "win_rate": 0.0,
-      "top4_rate": 0.0
-    },
-    "TFT_Item_NeedlesslyLargeRod": {
-      "games": 4,
-      "avg_placement": 3.25,
-      "win_rate": 0.0,
-      "top4_rate": 100.0
-    },
-    "TFT14_Item_BruiserEmblemItem": {
-      "games": 3,
-      "avg_placement": 4.67,
-      "win_rate": 0.0,
-      "top4_rate": 33.3
-    },
-    "TFT_Item_EmptyBag": {
-      "games": 2,
-      "avg_placement": 1.0,
-      "win_rate": 100.0,
-      "top4_rate": 100.0
-    },
-    "TFT_Item_ForceOfNature": {
       "games": 2,
       "avg_placement": 6.0,
       "win_rate": 0.0,
       "top4_rate": 0.0
     },
-    "TFT_Item_TearOfTheGoddess": {
-      "games": 5,
-      "avg_placement": 5.4,
-      "win_rate": 0.0,
-      "top4_rate": 20.0
+    "TFT_Item_JeweledGauntlet": {
+      "games": 4,
+      "avg_placement": 3.0,
+      "win_rate": 25.0,
+      "top4_rate": 75.0
     },
-    "TFT9_Item_OrnnHullbreaker": {
+    "TFT_Item_TitansResolve": {
       "games": 2,
       "avg_placement": 4.0,
       "win_rate": 0.0,
       "top4_rate": 50.0
     },
-    "TFT14_Item_ControllerEmblemItem": {
+    "TFT_Item_GuinsoosRageblade": {
+      "games": 5,
+      "avg_placement": 5.2,
+      "win_rate": 20.0,
+      "top4_rate": 40.0
+    },
+    "TFT_Item_SpectralGauntlet": {
+      "games": 2,
+      "avg_placement": 3.5,
+      "win_rate": 50.0,
+      "top4_rate": 50.0
+    },
+    "TFT_Item_Redemption": {
+      "games": 4,
+      "avg_placement": 3.0,
+      "win_rate": 25.0,
+      "top4_rate": 75.0
+    },
+    "TFT_Item_GargoyleStoneplate": {
+      "games": 4,
+      "avg_placement": 5.0,
+      "win_rate": 25.0,
+      "top4_rate": 50.0
+    },
+    "TFT_Item_Morellonomicon": {
       "games": 2,
       "avg_placement": 2.0,
-      "win_rate": 0.0,
+      "win_rate": 50.0,
       "top4_rate": 100.0
     },
-    "TFT14_Item_StrongEmblemItem": {
-      "games": 2,
-      "avg_placement": 4.0,
-      "win_rate": 0.0,
-      "top4_rate": 100.0
+    "TFT_Item_RunaansHurricane": {
+      "games": 5,
+      "avg_placement": 3.8,
+      "win_rate": 20.0,
+      "top4_rate": 60.0
     },
-    "TFT7_Item_ShimmerscaleGamblersBlade": {
-      "games": 2,
-      "avg_placement": 6.5,
-      "win_rate": 0.0,
-      "top4_rate": 0.0
+    "TFT_Item_InfinityEdge": {
+      "games": 5,
+      "avg_placement": 3.2,
+      "win_rate": 20.0,
+      "top4_rate": 80.0
     },
-    "TFT14_Item_StreetDemonEmblemItem": {
+    "TFT_Item_Quicksilver": {
+      "games": 4,
+      "avg_placement": 5.75,
+      "win_rate": 25.0,
+      "top4_rate": 25.0
+    },
+    "TFT_Item_AdaptiveHelm": {
+      "games": 4,
+      "avg_placement": 3.5,
+      "win_rate": 0.0,
+      "top4_rate": 75.0
+    },
+    "TFT_Item_Bloodthirster": {
       "games": 3,
-      "avg_placement": 4.67,
-      "win_rate": 0.0,
-      "top4_rate": 33.3
-    },
-    "TFT14_Item_ImmortalEmblemItem": {
-      "games": 3,
-      "avg_placement": 4.0,
+      "avg_placement": 5.0,
       "win_rate": 0.0,
       "top4_rate": 66.7
     },
-    "TFT14_Item_ArmorcladEmblemItem": {
-      "games": 3,
+    "TFT_Item_GuardianAngel": {
+      "games": 2,
       "avg_placement": 5.0,
       "win_rate": 0.0,
-      "top4_rate": 33.3
+      "top4_rate": 50.0
     },
-    "TFT5_Item_SpearOfShojinRadiant": {
+    "TFT_Item_WarmogsArmor": {
       "games": 2,
       "avg_placement": 5.5,
       "win_rate": 0.0,
-      "top4_rate": 0.0
+      "top4_rate": 50.0
     },
-    "TFT14_VarusCyberneticItem": {
-      "games": 3,
-      "avg_placement": 5.0,
+    "TFT_Item_HextechGunblade": {
+      "games": 2,
+      "avg_placement": 5.5,
       "win_rate": 0.0,
-      "top4_rate": 33.3
+      "top4_rate": 50.0
     },
-    "TFT7_Item_ShimmerscaleMogulsMail": {
+    "TFT_Item_RedBuff": {
       "games": 2,
       "avg_placement": 2.5,
       "win_rate": 0.0,
       "top4_rate": 100.0
     },
-    "TFT14_JhinCyberneticItem": {
+    "TFT_Item_NightHarvester": {
       "games": 2,
-      "avg_placement": 3.5,
+      "avg_placement": 5.0,
       "win_rate": 0.0,
       "top4_rate": 50.0
     },
-    "TFT5_Item_GargoyleStoneplateRadiant": {
-      "games": 3,
-      "avg_placement": 5.33,
+    "TFT_Item_IonicSpark": {
+      "games": 2,
+      "avg_placement": 2.0,
       "win_rate": 0.0,
-      "top4_rate": 33.3
+      "top4_rate": 100.0
     },
-    "TFT5_Item_ThiefsGlovesRadiant": {
+    "TFT_Item_ThiefsGloves": {
+      "games": 2,
+      "avg_placement": 2.0,
+      "win_rate": 0.0,
+      "top4_rate": 100.0
+    },
+    "TFT_Item_PowerGauntlet": {
       "games": 2,
       "avg_placement": 4.5,
       "win_rate": 0.0,
